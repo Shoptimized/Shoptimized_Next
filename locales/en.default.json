@@ -104,6 +104,8 @@
       "add_to_cart": "Add to cart",
       "description": "Description",
       "on_sale": "Sale",
+      "of":"of",
+      "sold": "Sold",
       "product_variants": "Product variants",
       "media": {
         "open_featured_media": "Open featured media in gallery view",

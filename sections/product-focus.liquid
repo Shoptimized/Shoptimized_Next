@@ -1,0 +1,131 @@
+{{ 'product-focus.css' | asset_url | stylesheet_tag }}
+{% assign position_number = 0 %}
+{% assign content_position = "left" %}
+<div class="product-focus style-{{ section.settings.background_style }}">
+    <div class="product-focus-contents">
+        <div class="product-focus-header">
+            <h2 class="product-focus-heading">{{ section.settings.heading }}</h2>
+            <p class="product-focus-subheading">{{ section.settings.sub_heading }}</p>
+        </div>
+        <div class="product-focus-body">
+            <div class="product-foucs-image-container">
+                <div class="product-foucs-image">
+                    {% if section.settings.show_product != blank and section.settings.show_product.featured_image%}
+                        <img srcset="{{ section.settings.show_product.featured_media | img_url: '789x'}}" 
+                            src="{{ section.settings.show_product.featured_media | img_url: '789x'}}"
+                            alt="{{ section.settings.show_product.title }}">
+                    {% else %}
+                        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="product-foucs-list-container">
+                <ul class="product-focus-list">
+                    {%- for block in section.blocks -%}
+                        {% assign position_number = position_number | plus: 1 %}
+                        {% assign odd_even = position_number | modulo: 2 %}
+                        {% if odd_even == 0 %}
+                            {% assign content_position = "right" %}
+                        {% else %}
+                            {% assign content_position = "left" %}
+                        {% endif %}
+                        <li class="product-focus-list-item list-item-{{ content_position }}">
+                            <ion-icon class="product-focus-list-item-icon" name="{{ block.settings.icon_name }}"></ion-icon>
+                            <h4 class="product-focus-list-item-title">{{ block.settings.heading }}</h4>
+                            <div class="product-focus-list-item-text">{{ block.settings.feature_content }}</div>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>  
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": "Product Focus",
+    "max_blocks": 4,
+    "blocks": [
+        {
+            "type": "feature",
+            "name": "Feature",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "heading",
+                    "label": "Heading",
+                    "default": "Feature"
+                },
+                {
+                    "type": "richtext",
+                    "id": "feature_content",
+                    "label": "Text",
+                    "default": "<p>Let your customers know what details set your product apart from the competition.</p>"
+                },
+                {
+                    "type": "text",
+                    "id": "icon_name",
+                    "label": "Icon name",
+                    "default": "refresh",
+                    "info": "[Click here](http://ionicons.com/)to view the list of available icons. Example: bluetooth"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "show_product_img",
+            "label": "Show product image",
+            "default": true
+        },
+        {
+            "type": "product",
+            "id": "show_product",
+            "label": "Product"
+        },
+        {
+            "type": "select",
+            "id":"background_style",
+            "label": "Background Style",
+            "options": [
+                {
+                    "value": "default",
+                    "label": "Default"
+                },
+                {
+                    "value": "light",
+                    "label": "Light"
+                },
+                {
+                    "value": "color",
+                    "label": "Color"
+                },
+                {
+                    "value": "gradient",
+                    "label": "Bradient"
+                }
+            ],
+            "default": "default"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Products Focus"
+        },
+        {
+            "type": "text",
+            "id": "sub_heading",
+            "label": "Subheading",
+            "default": "Highlight your product's finest features."
+        }
+    ],
+    "presets": [
+       {
+           "name": "Product Focus"
+       }
+   ]
+}
+{% endschema %}

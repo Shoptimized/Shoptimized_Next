@@ -1,0 +1,80 @@
+{% assign scarcity_bar_style = settings.product_progressbar_style %}
+{% assign inventory_quantity = 0 %}
+{% assign total_quantity = settings.total_quantity_value | default: 200 %}
+{% for variant in product.variants %}
+    {% assign inventory_quantity = inventory_quantity | plus: variant.inventory_quantity %}
+{% endfor %}
+
+{% if total_quantity <= inventory_quantity %}
+    {% assign total_quantity = inventory_quantity | plus: 200 %}
+{% endif %}
+
+{% if scarcity_bar_style == "1" %}
+    {% assign scarcity_bar_style = "normal" %}
+{% else %}
+    {% assign scarcity_bar_style = "reverse" %}
+{% endif %}
+
+{% assign quantity_text = '<strong class="product-quantity">' | append: inventory_quantity | append: '</strong>' %}
+{% assign all_quantity_text = settings.product_scarcity_text | replace: 'XX',  quantity_text %}
+
+<style>
+    .product-scarcity-bar .product-scarcity-header, .product-scarcity-bar .product-scarcity-bar__count{
+        margin: 10px 0;
+        color: var(--product-scarcity-text-color);
+        font-family: var(--product-scarcity-text-font);
+        font-size: var(--product-scarcity-text-fontsize);
+    }
+    .product-scarcity-bar .product-quantity {
+        color: var(--product-quantity-color);
+        font-family: var(--product-quantity-font);
+        font-size: var(--product-quantity-fontsize);
+    }
+    .product-progress-bar {
+        background-color: var(--product-scarcity-progress-bar-back-color);
+        width: 100%;
+        height: 8px;
+        border-radius: 50px;
+    }
+    .product-progress-bar .product-progress-bar__completed {
+        background-color: var(--product-scarcity-progress-bar-color);
+        height: 100%;
+        border-radius: 50px;
+    }
+</style>
+{% capture real_progress_markup %}
+    <div class="js-product-scarcity-bar-real-regular">
+        <p class="product-scarcity-bar__count js-scarcity-bar-total">
+            {{ all_quantity_text }}
+        </p>
+    </div>
+{% endcapture %}
+<div class="product-scarcity-bar"
+    data-left-count="{{ inventory_quantity }}"
+    data-total-count="{{ total_quantity }}">
+    <p class="product-scarcity-header">{{ settings.product_scarcity_header }}</p>
+    <div class="product-progress-bar">
+        <div class="product-progress-bar__completed js-scarcity-bar"
+             data-style="{{ scarcity_bar_style }}">
+        </div>
+    </div>
+    <div class="product-scarcity-bar__text">
+        {{ real_progress_markup }}
+    </div>
+</div>
+
+<script>
+    var product_scarcity_bar = $('.product-scarcity-bar');
+    var product_progress_bar = $('.product-progress-bar');
+    var product_progress_bar__completed = $('.js-scarcity-bar');
+    
+    var progress_bar_percent = product_scarcity_bar.attr('data-left-count') / product_scarcity_bar.attr('data-total-count');
+
+    if(product_progress_bar__completed.attr('data-style') == 'normal') 
+    {
+        product_progress_bar__completed.css('width', progress_bar_percent * 100 + '%');
+    }
+    else {
+        product_progress_bar__completed.css('width', 100 - progress_bar_percent * 100 + '%');
+    }
+</script>

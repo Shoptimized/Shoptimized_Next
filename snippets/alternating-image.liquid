@@ -1,0 +1,24 @@
+<div class="alternating-contents image-content media-right-content style-{{ block.settings.background_style }}">
+    <div class="contents-body">
+        <div class="media-aligned media-aligned-{{ content_position }}">
+            <div class="alternating-left-right-section content-left-right-text">
+                <h3 class="content-title">{{ block.settings.alternating_header }}</h3>
+                <div class="content-text">{{ block.settings.alternating_content }}</div>
+                {% if block.settings.alternating_button_link != blank %}
+                    <div class="content-link">
+                        <a href="{{ block.settings.alternating_button_link }}">{{ block.settings.alternating_button_text }}</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="alternating-left-right-section content-left-right-media">
+            {% if block.settings.alternating_image != blank %}
+                <img src="{{ block.settings.alternating_image | img_url: '600x' }}"
+                    alt="Image"
+                    class="alternating-content-image">
+            {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

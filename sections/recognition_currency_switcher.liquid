@@ -1,0 +1,13 @@
+{{ 'recognition_currencies.css' | asset_url | stylesheet_tag }}
+<div class="recognition_currency">
+    <div class="recogniti_currency_oncontent">
+        {% if settings.show_recognition %}
+            {% include 'recognition_freeshipping' %}
+        {% endif %}
+        {% if settings.show_currency_switch %}
+            <div class="currency">
+                {% include 'currencies-switch' %}
+            </div>
+        {% endif %}
+    </div>
+</div>

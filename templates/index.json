@@ -2,9 +2,6 @@
   "sections": {
     "image_banner": {
       "type": "image-banner",
-      "settings": {
-        "desktop_text_box_position": "flex-end"
-      },
       "blocks": {
         "heading": {
           "type": "heading",
@@ -17,44 +14,205 @@
           "settings": {
             "button_label_1": "Shop all",
             "button_link_1": "shopify:\/\/collections\/all",
-            "button_label_2": ""
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
         "heading",
         "button"
-      ]
+      ],
+      "settings": {
+        "desktop_text_box_position": "flex-end",
+        "color_scheme": "background-1",
+        "stack_images_on_mobile": true,
+        "adapt_height_first_image": false
+      }
     },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products"
+        "title": "Featured products",
+        "collection": "shirts",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
       }
     },
-    "image_text": {
-      "type": "image-with-text",
+    "alternating_content": {
+      "type": "alternating-content",
       "blocks": {
-        "heading": {
-          "type": "heading"
+        "image": {
+          "type": "image",
+          "settings": {
+            "background_style": "default",
+            "alternating_header": "Alternating content",
+            "alternating_content": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.<\/p>",
+            "alternating_button_text": "This is your call to action",
+            "alternating_button_link": ""
+          }
         },
-        "text": {
-          "type": "text"
-        },
-        "button": {
-          "type": "button"
+        "video": {
+          "type": "video",
+          "settings": {
+            "background_style": "default",
+            "alternating_header": "Alternating content",
+            "alternating_content": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.<\/p>",
+            "alternating_button_text": "This is your call to action",
+            "alternating_button_link": "",
+            "video_url": ""
+          }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
-      ]
+        "image",
+        "video"
+      ],
+      "settings": {
+      }
+    },
+    "product_focus": {
+      "type": "product-focus",
+      "blocks": {
+        "feature": {
+          "type": "feature",
+          "settings": {
+            "heading": "Feature",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "icon_name": "refresh"
+          }
+        },
+        "cb4b2c53-46e9-4d13-be67-946f6e2087dd": {
+          "type": "feature",
+          "settings": {
+            "heading": "Feature",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "icon_name": "refresh"
+          }
+        },
+        "0c7a98bb-3449-4b35-b60e-be8b27a1ead0": {
+          "type": "feature",
+          "settings": {
+            "heading": "Feature",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "icon_name": "refresh"
+          }
+        }
+      },
+      "block_order": [
+        "feature",
+        "cb4b2c53-46e9-4d13-be67-946f6e2087dd",
+        "0c7a98bb-3449-4b35-b60e-be8b27a1ead0"
+      ],
+      "settings": {
+        "show_product_img": true,
+        "show_product": "",
+        "background_style": "default",
+        "heading": "Products Focus",
+        "sub_heading": "Highlight your product's finest features."
+      }
+    },
+    "16279298267c46d60b": {
+      "type": "image-with-text",
+      "blocks": {
+        "fc0bc384-cbde-4818-90a1-ba0fce8cd0f7": {
+          "type": "image-text",
+          "settings": {
+            "text_heading": "Images with text",
+            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>"
+          }
+        },
+        "e63b1fdc-7ecf-4f14-8ba4-ed98031a4133": {
+          "type": "image-text",
+          "settings": {
+            "text_heading": "Images with text",
+            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>"
+          }
+        },
+        "a4f05ab1-f1e2-4ca9-ba1f-b550eee57f3f": {
+          "type": "image-text",
+          "settings": {
+            "text_heading": "Images with text",
+            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "fc0bc384-cbde-4818-90a1-ba0fce8cd0f7",
+        "e63b1fdc-7ecf-4f14-8ba4-ed98031a4133",
+        "a4f05ab1-f1e2-4ca9-ba1f-b550eee57f3f"
+      ],
+      "settings": {
+        "background_style": "default",
+        "heading": "",
+        "subheading": "",
+        "position_alignment": "left"
+      }
+    },
+    "16279733061ed9a0b9": {
+      "type": "product-focus",
+      "blocks": {
+        "98672183-f8d0-49e7-958d-054ea9756a1b": {
+          "type": "feature",
+          "settings": {
+            "heading": "Feature",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "icon_name": "refresh"
+          }
+        },
+        "fe3224f1-fa79-4290-b036-e77ae9cfef4d": {
+          "type": "feature",
+          "settings": {
+            "heading": "Feature",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "icon_name": "refresh"
+          }
+        },
+        "667f54aa-1a05-490e-ae8e-7d369a8903a4": {
+          "type": "feature",
+          "settings": {
+            "heading": "Feature",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "icon_name": "refresh"
+          }
+        },
+        "61498f53-0070-4192-bacb-972021ebbf29": {
+          "type": "feature",
+          "settings": {
+            "heading": "Feature",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "icon_name": "refresh"
+          }
+        }
+      },
+      "block_order": [
+        "98672183-f8d0-49e7-958d-054ea9756a1b",
+        "fe3224f1-fa79-4290-b036-e77ae9cfef4d",
+        "667f54aa-1a05-490e-ae8e-7d369a8903a4",
+        "61498f53-0070-4192-bacb-972021ebbf29"
+      ],
+      "settings": {
+        "show_product_img": true,
+        "show_product": "black-shirt",
+        "background_style": "light",
+        "heading": "Products Focus",
+        "sub_heading": "Highlight your product's finest features."
+      }
     }
   },
   "order": [
     "image_banner",
     "featured_products",
-    "image_text"
+    "alternating_content",
+    "product_focus",
+    "16279298267c46d60b",
+    "16279733061ed9a0b9"
   ]
 }

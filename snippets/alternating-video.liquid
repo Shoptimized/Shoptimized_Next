@@ -1,0 +1,23 @@
+<div class="alternating-contents video-content media-left-content style-{{ block.settings.background_style }}">
+    <div class="contents-body">
+        <div class="media-aligned media-aligned-{{ content_position }}">
+            <div class="alternating-left-right-section content-left-right-text">
+                <h3 class="content-title">{{ block.settings.alternating_header }}</h3>
+                <div class="content-text">{{ block.settings.alternating_content }}</div>
+                {% if block.settings.block.settings.alternating_button_link != blank %}
+                    <div class="content-link">
+                        <a href="{{ block.settings.alternating_button_link }}">{{ block.settings.alternating_button_text }}</a>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="alternating-left-right-section content-left-right-media">
+                <div class="alternating-video">
+                    <div class="full-width-video">
+                        <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" style="{% if block.settings.alternating_back_image != blank %} background-image: block.settings.alternating_back_image; {% else %} background-color: #ddd; {% endif %}">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

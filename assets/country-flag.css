@@ -1,0 +1,777 @@
+.country-flag {
+	position: relative;
+	display: inline-block;
+	width: 24px;
+	height: 20px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+}
+.country-flag-ad {
+	background-image: url(ad.svg);
+}
+.country-flag-ae {
+	background-image: url(ae.svg);
+}
+.country-flag-af {
+	background-image: url(af.svg);
+}
+.country-flag-ag {
+	background-image: url(ag.svg);
+}
+.country-flag-ai {
+	background-image: url(ai.svg);
+}
+.country-flag-al {
+	background-image: url(al.svg);
+}
+.country-flag-am {
+	background-image: url(am.svg);
+}
+.country-flag-ao {
+	background-image: url(ao.svg);
+}
+.country-flag-aq {
+	background-image: url(aq.svg);
+}
+.country-flag-ar {
+	background-image: url(ar.svg);
+}
+.country-flag-as {
+	background-image: url(as.svg);
+}
+.country-flag-at {
+	background-image: url(at.svg);
+}
+.country-flag-au {
+	background-image: url(au.svg);
+}
+.country-flag-aw {
+	background-image: url(aw.svg);
+}
+.country-flag-ax {
+	background-image: url(ax.svg);
+}
+.country-flag-az {
+	background-image: url(az.svg);
+}
+.country-flag-ba {
+	background-image: url(ba.svg);
+}
+.country-flag-bb {
+	background-image: url(bb.svg);
+}
+.country-flag-bd {
+	background-image: url(bd.svg);
+}
+.country-flag-be {
+	background-image: url(be.svg);
+}
+.country-flag-bf {
+	background-image: url(bf.svg);
+}
+.country-flag-bg {
+	background-image: url(bg.svg);
+}
+.country-flag-bh {
+	background-image: url(bh.svg);
+}
+.country-flag-bi {
+	background-image: url(bi.svg);
+}
+.country-flag-bj {
+	background-image: url(bj.svg);
+}
+.country-flag-bl {
+	background-image: url(bl.svg);
+}
+.country-flag-bm {
+	background-image: url(bm.svg);
+}
+.country-flag-bn {
+	background-image: url(bn.svg);
+}
+.country-flag-bo {
+	background-image: url(bo.svg);
+}
+.country-flag-bq {
+	background-image: url(bq.svg);
+}
+.country-flag-br {
+	background-image: url(br.svg);
+}
+.country-flag-bs {
+	background-image: url(bs.svg);
+}
+.country-flag-bt {
+	background-image: url(bt.svg);
+}
+.country-flag-bv {
+	background-image: url(bv.svg);
+}
+.country-flag-bw {
+	background-image: url(bw.svg);
+}
+.country-flag-by {
+	background-image: url(by.svg);
+}
+.country-flag-bz {
+	background-image: url(bz.svg);
+}
+.country-flag-ca {
+	background-image: url(ca.svg);
+}
+.country-flag-cc {
+	background-image: url(cc.svg);
+}
+.country-flag-cd {
+	background-image: url(cd.svg);
+}
+.country-flag-cf {
+	background-image: url(cf.svg);
+}
+.country-flag-cg {
+	background-image: url(cg.svg);
+}
+.country-flag-ch {
+	background-image: url(ch.svg);
+}
+.country-flag-ci {
+	background-image: url(ci.svg);
+}
+.country-flag-ck {
+	background-image: url(ck.svg);
+}
+.country-flag-cl {
+	background-image: url(cl.svg);
+}
+.country-flag-cm {
+	background-image: url(cm.svg);
+}
+.country-flag-cn {
+	background-image: url(cn.svg);
+}
+.country-flag-co {
+	background-image: url(co.svg);
+}
+.country-flag-cr {
+	background-image: url(cr.svg);
+}
+.country-flag-cu {
+	background-image: url(cu.svg);
+}
+.country-flag-cv {
+	background-image: url(cv.svg);
+}
+.country-flag-cw {
+	background-image: url(cw.svg);
+}
+.country-flag-cx {
+	background-image: url(cx.svg);
+}
+.country-flag-cy {
+	background-image: url(cy.svg);
+}
+.country-flag-cz {
+	background-image: url(cz.svg);
+}
+.country-flag-de {
+	background-image: url(de.svg);
+}
+.country-flag-dj {
+	background-image: url(dj.svg);
+}
+.country-flag-dk {
+	background-image: url(dk.svg);
+}
+.country-flag-dm {
+	background-image: url(dm.svg);
+}
+.country-flag-do {
+	background-image: url(do.svg);
+}
+.country-flag-dz {
+	background-image: url(dz.svg);
+}
+.country-flag-ec {
+	background-image: url(ec.svg);
+}
+.country-flag-ee {
+	background-image: url(ee.svg);
+}
+.country-flag-eg {
+	background-image: url(eg.svg);
+}
+.country-flag-eh {
+	background-image: url(eh.svg);
+}
+.country-flag-er {
+	background-image: url(er.svg);
+}
+.country-flag-es {
+	background-image: url(es.svg);
+}
+.country-flag-et {
+	background-image: url(et.svg);
+}
+.country-flag-fi {
+	background-image: url(fi.svg);
+}
+.country-flag-fj {
+	background-image: url(fj.svg);
+}
+.country-flag-fk {
+	background-image: url(fk.svg);
+}
+.country-flag-fm {
+	background-image: url(fm.svg);
+}
+.country-flag-fo {
+	background-image: url(fo.svg);
+}
+.country-flag-fr {
+	background-image: url(fr.svg);
+}
+.country-flag-ga {
+	background-image: url(ga.svg);
+}
+.country-flag-gb {
+	background-image: url(gb.svg);
+}
+.country-flag-gd {
+	background-image: url(gd.svg);
+}
+.country-flag-ge {
+	background-image: url(ge.svg);
+}
+.country-flag-gf {
+	background-image: url(gf.svg);
+}
+.country-flag-gg {
+	background-image: url(gg.svg);
+}
+.country-flag-gh {
+	background-image: url(gh.svg);
+}
+.country-flag-gi {
+	background-image: url(gi.svg);
+}
+.country-flag-gl {
+	background-image: url(gl.svg);
+}
+.country-flag-gm {
+	background-image: url(gm.svg);
+}
+.country-flag-gn {
+	background-image: url(gn.svg);
+}
+.country-flag-gp {
+	background-image: url(gp.svg);
+}
+.country-flag-gq {
+	background-image: url(gq.svg);
+}
+.country-flag-gr {
+	background-image: url(gr.svg);
+}
+.country-flag-gs {
+	background-image: url(gs.svg);
+}
+.country-flag-gt {
+	background-image: url(gt.svg);
+}
+.country-flag-gu {
+	background-image: url(gu.svg);
+}
+.country-flag-gw {
+	background-image: url(gw.svg);
+}
+.country-flag-gy {
+	background-image: url(gy.svg);
+}
+.country-flag-hk {
+	background-image: url(hk.svg);
+}
+.country-flag-hm {
+	background-image: url(hm.svg);
+}
+.country-flag-hn {
+	background-image: url(hn.svg);
+}
+.country-flag-hr {
+	background-image: url(hr.svg);
+}
+.country-flag-ht {
+	background-image: url(ht.svg);
+}
+.country-flag-hu {
+	background-image: url(hu.svg);
+}
+.country-flag-id {
+	background-image: url(id.svg);
+}
+.country-flag-ie {
+	background-image: url(ie.svg);
+}
+.country-flag-il {
+	background-image: url(il.svg);
+}
+.country-flag-im {
+	background-image: url(im.svg);
+}
+.country-flag-in {
+	background-image: url(in.svg);
+}
+.country-flag-io {
+	background-image: url(io.svg);
+}
+.country-flag-iq {
+	background-image: url(iq.svg);
+}
+.country-flag-ir {
+	background-image: url(ir.svg);
+}
+.country-flag-is {
+	background-image: url(is.svg);
+}
+.country-flag-it {
+	background-image: url(it.svg);
+}
+.country-flag-je {
+	background-image: url(je.svg);
+}
+.country-flag-jm {
+	background-image: url(jm.svg);
+}
+.country-flag-jo {
+	background-image: url(jo.svg);
+}
+.country-flag-jp {
+	background-image: url(jp.svg);
+}
+.country-flag-ke {
+	background-image: url(ke.svg);
+}
+.country-flag-kg {
+	background-image: url(kg.svg);
+}
+.country-flag-kh {
+	background-image: url(kh.svg);
+}
+.country-flag-ki {
+	background-image: url(ki.svg);
+}
+.country-flag-km {
+	background-image: url(km.svg);
+}
+.country-flag-kn {
+	background-image: url(kn.svg);
+}
+.country-flag-kp {
+	background-image: url(kp.svg);
+}
+.country-flag-kr {
+	background-image: url(kr.svg);
+}
+.country-flag-kw {
+	background-image: url(kw.svg);
+}
+.country-flag-ky {
+	background-image: url(ky.svg);
+}
+.country-flag-kz {
+	background-image: url(kz.svg);
+}
+.country-flag-la {
+	background-image: url(la.svg);
+}
+.country-flag-lb {
+	background-image: url(lb.svg);
+}
+.country-flag-lc {
+	background-image: url(lc.svg);
+}
+.country-flag-li {
+	background-image: url(li.svg);
+}
+.country-flag-lk {
+	background-image: url(lk.svg);
+}
+.country-flag-lr {
+	background-image: url(lr.svg);
+}
+.country-flag-ls {
+	background-image: url(ls.svg);
+}
+.country-flag-lt {
+	background-image: url(lt.svg);
+}
+.country-flag-lu {
+	background-image: url(lu.svg);
+}
+.country-flag-lv {
+	background-image: url(lv.svg);
+}
+.country-flag-ly {
+	background-image: url(ly.svg);
+}
+.country-flag-ma {
+	background-image: url(ma.svg);
+}
+.country-flag-mc {
+	background-image: url(mc.svg);
+}
+.country-flag-md {
+	background-image: url(md.svg);
+}
+.country-flag-me {
+	background-image: url(me.svg);
+}
+.country-flag-mf {
+	background-image: url(mf.svg);
+}
+.country-flag-mg {
+	background-image: url(mg.svg);
+}
+.country-flag-mh {
+	background-image: url(mh.svg);
+}
+.country-flag-mk {
+	background-image: url(mk.svg);
+}
+.country-flag-ml {
+	background-image: url(ml.svg);
+}
+.country-flag-mm {
+	background-image: url(mm.svg);
+}
+.country-flag-mn {
+	background-image: url(mn.svg);
+}
+.country-flag-mo {
+	background-image: url(mo.svg);
+}
+.country-flag-mp {
+	background-image: url(mp.svg);
+}
+.country-flag-mq {
+	background-image: url(mq.svg);
+}
+.country-flag-mr {
+	background-image: url(mr.svg);
+}
+.country-flag-ms {
+	background-image: url(ms.svg);
+}
+.country-flag-mt {
+	background-image: url(mt.svg);
+}
+.country-flag-mu {
+	background-image: url(mu.svg);
+}
+.country-flag-mv {
+	background-image: url(mv.svg);
+}
+.country-flag-mw {
+	background-image: url(mw.svg);
+}
+.country-flag-mx {
+	background-image: url(mx.svg);
+}
+.country-flag-my {
+	background-image: url(my.svg);
+}
+.country-flag-mz {
+	background-image: url(mz.svg);
+}
+.country-flag-na {
+	background-image: url(na.svg);
+}
+.country-flag-nc {
+	background-image: url(nc.svg);
+}
+.country-flag-ne {
+	background-image: url(ne.svg);
+}
+.country-flag-nf {
+	background-image: url(nf.svg);
+}
+.country-flag-ng {
+	background-image: url(ng.svg);
+}
+.country-flag-ni {
+	background-image: url(ni.svg);
+}
+.country-flag-nl {
+	background-image: url(nl.svg);
+}
+.country-flag-no {
+	background-image: url(no.svg);
+}
+.country-flag-np {
+	background-image: url(np.svg);
+}
+.country-flag-nr {
+	background-image: url(nr.svg);
+}
+.country-flag-nu {
+	background-image: url(nu.svg);
+}
+.country-flag-nz {
+	background-image: url(nz.svg);
+}
+.country-flag-om {
+	background-image: url(om.svg);
+}
+.country-flag-pa {
+	background-image: url(pa.svg);
+}
+.country-flag-pe {
+	background-image: url(pe.svg);
+}
+.country-flag-pf {
+	background-image: url(pf.svg);
+}
+.country-flag-pg {
+	background-image: url(pg.svg);
+}
+.country-flag-ph {
+	background-image: url(ph.svg);
+}
+.country-flag-pk {
+	background-image: url(pk.svg);
+}
+.country-flag-pl {
+	background-image: url(pl.svg);
+}
+.country-flag-pm {
+	background-image: url(pm.svg);
+}
+.country-flag-pn {
+	background-image: url(pn.svg);
+}
+.country-flag-pr {
+	background-image: url(pr.svg);
+}
+.country-flag-ps {
+	background-image: url(ps.svg);
+}
+.country-flag-pt {
+	background-image: url(pt.svg);
+}
+.country-flag-pw {
+	background-image: url(pw.svg);
+}
+.country-flag-py {
+	background-image: url(py.svg);
+}
+.country-flag-qa {
+	background-image: url(qa.svg);
+}
+.country-flag-re {
+	background-image: url(re.svg);
+}
+.country-flag-ro {
+	background-image: url(ro.svg);
+}
+.country-flag-rs {
+	background-image: url(rs.svg);
+}
+.country-flag-ru {
+	background-image: url(ru.svg);
+}
+.country-flag-rw {
+	background-image: url(rw.svg);
+}
+.country-flag-sa {
+	background-image: url(sa.svg);
+}
+.country-flag-sb {
+	background-image: url(sb.svg);
+}
+.country-flag-sc {
+	background-image: url(sc.svg);
+}
+.country-flag-sd {
+	background-image: url(sd.svg);
+}
+.country-flag-se {
+	background-image: url(se.svg);
+}
+.country-flag-sg {
+	background-image: url(sg.svg);
+}
+.country-flag-sh {
+	background-image: url(sh.svg);
+}
+.country-flag-si {
+	background-image: url(si.svg);
+}
+.country-flag-sj {
+	background-image: url(sj.svg);
+}
+.country-flag-sk {
+	background-image: url(sk.svg);
+}
+.country-flag-sl {
+	background-image: url(sl.svg);
+}
+.country-flag-sm {
+	background-image: url(sm.svg);
+}
+.country-flag-sn {
+	background-image: url(sn.svg);
+}
+.country-flag-so {
+	background-image: url(so.svg);
+}
+.country-flag-sr {
+	background-image: url(sr.svg);
+}
+.country-flag-ss {
+	background-image: url(ss.svg);
+}
+.country-flag-st {
+	background-image: url(st.svg);
+}
+.country-flag-sv {
+	background-image: url(sv.svg);
+}
+.country-flag-sx {
+	background-image: url(sx.svg);
+}
+.country-flag-sy {
+	background-image: url(sy.svg);
+}
+.country-flag-sz {
+	background-image: url(sz.svg);
+}
+.country-flag-tc {
+	background-image: url(tc.svg);
+}
+.country-flag-td {
+	background-image: url(td.svg);
+}
+.country-flag-tf {
+	background-image: url(tf.svg);
+}
+.country-flag-tg {
+	background-image: url(tg.svg);
+}
+.country-flag-th {
+	background-image: url(th.svg);
+}
+.country-flag-tj {
+	background-image: url(tj.svg);
+}
+.country-flag-tk {
+	background-image: url(tk.svg);
+}
+.country-flag-tl {
+	background-image: url(tl.svg);
+}
+.country-flag-tm {
+	background-image: url(tm.svg);
+}
+.country-flag-tn {
+	background-image: url(tn.svg);
+}
+.country-flag-to {
+	background-image: url(to.svg);
+}
+.country-flag-tr {
+	background-image: url(tr.svg);
+}
+.country-flag-tt {
+	background-image: url(tt.svg);
+}
+.country-flag-tv {
+	background-image: url(tv.svg);
+}
+.country-flag-tw {
+	background-image: url(tw.svg);
+}
+.country-flag-tz {
+	background-image: url(tz.svg);
+}
+.country-flag-ua {
+	background-image: url(ua.svg);
+}
+.country-flag-ug {
+	background-image: url(ug.svg);
+}
+.country-flag-um {
+	background-image: url(um.svg);
+}
+.country-flag-us {
+	background-image: url(us.svg);
+}
+.country-flag-uy {
+	background-image: url(uy.svg);
+}
+.country-flag-uz {
+	background-image: url(uz.svg);
+}
+.country-flag-va {
+	background-image: url(va.svg);
+}
+.country-flag-vc {
+	background-image: url(vc.svg);
+}
+.country-flag-ve {
+	background-image: url(ve.svg);
+}
+.country-flag-vg {
+	background-image: url(vg.svg);
+}
+.country-flag-vi {
+	background-image: url(vi.svg);
+}
+.country-flag-vn {
+	background-image: url(vn.svg);
+}
+.country-flag-vu {
+	background-image: url(vu.svg);
+}
+.country-flag-wf {
+	background-image: url(wf.svg);
+}
+.country-flag-ws {
+	background-image: url(ws.svg);
+}
+.country-flag-ye {
+	background-image: url(ye.svg);
+}
+.country-flag-yt {
+	background-image: url(yt.svg);
+}
+.country-flag-za {
+	background-image: url(za.svg);
+}
+.country-flag-zm {
+	background-image: url(zm.svg);
+}
+.country-flag-zw {
+	background-image: url(zw.svg);
+}
+.country-flag-es-ct {
+	background-image: url(es-ct.svg);
+}
+.country-flag-eu {
+	background-image: url(eu.svg);
+}
+.country-flag-gb-eng {
+	background-image: url(gb-eng.svg);
+}
+.country-flag-gb-nir {
+	background-image: url(gb-nir.svg);
+}
+.country-flag-gb-sct {
+	background-image: url(gb-sct.svg);
+}
+.country-flag-gb-wls {
+	background-image: url(gb-wls.svg);
+}
+.country-flag-un {
+	background-image: url(un.svg);
+}

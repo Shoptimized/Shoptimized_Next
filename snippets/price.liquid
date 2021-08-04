@@ -44,7 +44,7 @@
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
       <dd {% if show_badges == false %}class="price__last"{% endif %}>
-        <span class="price-item price-item--regular">
+        <span class="price-item price-item--regular" shop_base_currency = '{{ money_price }}'>
           {{ money_price }}
         </span>
       </dd>
@@ -54,15 +54,15 @@
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
       <dd class="price__compare">
-        <s class="price-item price-item--regular">
+        <span class="price-item price-item--regular" shop_base_currency = '{{ compare_at_price | money }}'>
           {{ compare_at_price | money }}
-        </s>
+        </span>
       </dd>
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
       </dt>
       <dd {% if show_badges == false %}class="price__last"{% endif %}>
-        <span class="price-item price-item--sale">
+        <span class="price-item price-item--sale" shop_base_currency = '{{ money_price }}'>
           {{ money_price }}
         </span>
       </dd>

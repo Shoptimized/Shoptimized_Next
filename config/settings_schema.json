@@ -4,8 +4,756 @@
     "theme_name": "Dawn",
     "theme_version": "1.1.0",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://shopify.dev/themes/tools/dawn",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/shopify.dev\/themes\/tools\/dawn",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "Recognition and Currency Switch",
+    "settings": [
+      {
+        "type": "text",
+        "id": "recog_text",
+        "label": "Add Free Shipping custom text below",
+        "default": "Spend $x to Unlock Free Shipping to"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_recognition",
+        "default": true,
+        "label": "Show Recognition"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_current_flag",
+        "default": true,
+        "label": "Show Customer Country Flag"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_currency_switch",
+        "default": true,
+        "label": "Show Currency Switcher"
+      },
+      {
+        "type": "select",
+        "id": "currency_type",
+        "label": "Currency Type",
+        "options": [
+          {
+            "value": "native",
+            "label": "Shopify Native Currency"
+          },
+          {
+            "value": "default",
+            "label": "Theme default Currency"
+          }
+        ],
+        "default": "default"
+      },
+      {
+        "type": "text",
+        "id": "supported_currencies",
+        "label": "Supported currencies",
+        "default": "USD CAD INR GBP AUD EUR JPY",
+        "info": "Use the country's ISO [currency code](http:\/\/www.xe.com\/iso4217.php). Separate your currency codes with a space."
+      }
+    ]
+  },
+  {
+    "name": "Product page Countdown Timer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_countdown_timer",
+        "default": true,
+        "label": "Enable"
+      },
+      {
+        "type": "select",
+        "id": "type_countdown_timer",
+        "label": "Select Countdown Timer Type",
+        "options": [
+          {
+            "value": "1",
+            "label": "Circles"
+          },
+          {
+            "value": "2",
+            "label": "Modern"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "text",
+        "id": "countdown_header_text",
+        "label": "Countdown Timer Header",
+        "default": "Hurry, Offer Ends in:"
+      },
+      {
+        "type": "color",
+        "id": "countdown_header_text_color",
+        "default": "#000000",
+        "label": "Countdown Timer Header Color",
+        "info": "Default color is #000000"
+      },
+      {
+        "type": "header",
+        "content": "Circle Countdown Timer Settings"
+      },
+      {
+        "type": "color",
+        "id": "countdown_1_round_color",
+        "default": "#7995D5",
+        "label": "Circles Color",
+        "info": "Default color is #7995D5"
+      },
+      {
+        "type": "color",
+        "id": "countdown_1_text_color",
+        "default": "#000000",
+        "label": "Text\/Numbers Color "
+      },
+      {
+        "type": "font_picker",
+        "id": "countdown_1_value_font",
+        "default": "sans-serif",
+        "label": "Font Style"
+      },
+      {
+        "type": "number",
+        "id": "countdown_1_desktop_fontsize",
+        "label": "Numbers Font Size(Desktop)",
+        "default": 20
+      },
+      {
+        "type": "number",
+        "id": "countdown_1_mobile_fontsize",
+        "label": "Numbers Font Size(Mobile)",
+        "info": "This must be large than Desktop Font Size",
+        "default": 40
+      },
+      {
+        "type": "number",
+        "id": "countdown_1_desktop_label_fontsize",
+        "label": "Text Font Size(Desktop)",
+        "default": 10
+      },
+      {
+        "type": "number",
+        "id": "countdown_1_mobile_label_fontsize",
+        "label": "Text Font Size(Mobile)",
+        "info": "This must be large than Desktop Font Size",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Modern Countdown Timer Setting"
+      },
+      {
+        "type": "font_picker",
+        "id": "countdown_2_label_font",
+        "default": "sans-serif",
+        "label": "Font Style for Seconds Text, Minutes Text, Hours Text, Days Text"
+      },
+      {
+        "type": "number",
+        "id": "countdown_2_label_fontsize",
+        "label": "Font Size for Seconds Text, Minutes Text, Hours Text, Days Text",
+        "default": 15
+      },
+      {
+        "type": "color",
+        "id": "countdown_2_label_color",
+        "default": "#1a1a1a",
+        "label": "Font Color for Seconds Text, Minutes Text, Hours Text, Days Text"
+      },
+      {
+        "type": "font_picker",
+        "id": "countdown_2_value_font",
+        "default": "sans-serif",
+        "label": "Modern Countdown Timer Number Fonts"
+      },
+      {
+        "type": "color",
+        "id": "countdown_2_value_color",
+        "default": "#de4848",
+        "label": "Modern Countdown Timer Seconds Number and Minutes Number ... Colors"
+      },
+      {
+        "type": "color",
+        "id": "countdown_2_value_background_color",
+        "default": "#f7f7f7",
+        "label": "Modern Countdown Timer Number Top Background"
+      }
+    ]
+  },
+  {
+    "name": "Product page SCARCITY Bar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "SCARCITY Bar Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_scarcity",
+        "default": true,
+        "label": "Enable Product Scarcity Bar",
+        "info": "Requires Tag 'show_quantity_bar' on the products"
+      },
+      {
+        "type": "text",
+        "id": "product_scarcity_header",
+        "label": "Progress Bar Header",
+        "default": "Quantity Remaining:"
+      },
+      {
+        "type": "text",
+        "id": "product_scarcity_text",
+        "label": "Product Scarcity Information",
+        "default": "Hury: Only XX Left",
+        "info": "You must include XX in this Sentence. XX is Prodcut Quantity."
+      },
+      {
+        "type": "select",
+        "id": "product_scarcity_text_fontsize",
+        "options": [
+          {
+            "value": "14px",
+            "label": "14px"
+          },
+          {
+            "value": "15px",
+            "label": "15px"
+          },
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "17px",
+            "label": "17px"
+          },
+          {
+            "value": "18px",
+            "label": "18px"
+          },
+          {
+            "value": "19px",
+            "label": "19px"
+          },
+          {
+            "value": "20px",
+            "label": "20px"
+          }
+        ],
+        "default": "14px",
+        "label": "Product Scarcity Text Font Size"
+      },
+      {
+        "type": "color",
+        "id": "product_scarcity_text_color",
+        "label": "Product Scarcity Text Font Color",
+        "default": "#000000"
+      },
+      {
+        "type": "font_picker",
+        "id": "product_scarcity_text_font",
+        "default": "sans-serif",
+        "label": "Product Scarcity Text Font Family"
+      },
+      {
+        "type": "color",
+        "id": "product_quantity_color",
+        "label": "Product Quantity Font Color",
+        "default": "#000000"
+      },
+      {
+        "type": "font_picker",
+        "id": "product_quantity_font",
+        "default": "sans-serif",
+        "label": "Product Quantity Font Family"
+      },
+      {
+        "type": "select",
+        "id": "product_quantity_fontsize",
+        "options": [
+          {
+            "value": "14px",
+            "label": "14px"
+          },
+          {
+            "value": "15px",
+            "label": "15px"
+          },
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "17px",
+            "label": "17px"
+          },
+          {
+            "value": "18px",
+            "label": "18px"
+          },
+          {
+            "value": "19px",
+            "label": "19px"
+          },
+          {
+            "value": "20px",
+            "label": "20px"
+          }
+        ],
+        "default": "16px",
+        "label": "Product Quantity Font Size"
+      },
+      {
+        "type": "select",
+        "id": "product_progressbar_style",
+        "label": "Product Scarcity Bar Type",
+        "options": [
+          {
+            "value": "1",
+            "label": "Normal"
+          },
+          {
+            "value": "2",
+            "label": "Reverse"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "color",
+        "id": "product_scarcity_progress_bar_back_color",
+        "label": "Progress Bar Background Color",
+        "default": "#e2dbdb"
+      },
+      {
+        "type": "color",
+        "id": "product_scarcity_progress_bar_color",
+        "label": "Progress Bar Color",
+        "default": "#ff4f42"
+      }
+    ]
+  },
+  {
+    "name": "Value Proposition \/ Trust badges",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Reason 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_reasons_1_display",
+        "default": true,
+        "label": "Display"
+      },
+      {
+        "type": "image_picker",
+        "id": "top_reasons_1_image",
+        "label": "Image",
+        "info": "Image must be less than 285 pixels wide and 285 pixels high"
+      },
+      {
+        "type": "header",
+        "content": "Reason 2"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_reasons_2_display",
+        "default": true,
+        "label": "Display"
+      },
+      {
+        "type": "image_picker",
+        "id": "top_reasons_2_image",
+        "label": "Image",
+        "info": "Image must be less than 285 pixels wide and 285 pixels high"
+      },
+      {
+        "type": "header",
+        "content": "Reason 3"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_reasons_3_display",
+        "default": true,
+        "label": "Display"
+      },
+      {
+        "type": "image_picker",
+        "id": "top_reasons_3_image",
+        "label": "Image",
+        "info": "Image must be less than 285 pixels wide and 285 pixels high"
+      },
+      {
+        "type": "header",
+        "content": "Reason 4"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_reasons_4_display",
+        "default": true,
+        "label": "Display"
+      },
+      {
+        "type": "image_picker",
+        "id": "top_reasons_4_image",
+        "label": "Image",
+        "info": "Image must be less than 285 pixels wide and 285 pixels high"
+      },
+      {
+        "type": "header",
+        "content": "Reason 5"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_reasons_5_display",
+        "default": true,
+        "label": "Display"
+      },
+      {
+        "type": "image_picker",
+        "id": "top_reasons_5_image",
+        "label": "Image",
+        "info": "Image must be less than 285 pixels wide and 285 pixels high"
+      },
+      {
+        "type": "header",
+        "content": "Reason 6"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_reasons_6_display",
+        "default": true,
+        "label": "Display"
+      },
+      {
+        "type": "image_picker",
+        "id": "top_reasons_6_image",
+        "label": "Image",
+        "info": "Image must be less than 285 pixels wide and 285 pixels high"
+      },
+      {
+        "type": "header",
+        "content": "Reason 7"
+      },
+      {
+        "type": "checkbox",
+        "id": "top_reasons_7_display",
+        "default": true,
+        "label": "Display"
+      },
+      {
+        "type": "image_picker",
+        "id": "top_reasons_7_image",
+        "label": "Image",
+        "info": "Image must be less than 285 pixels wide and 285 pixels high"
+      }
+    ]
+  },
+  {
+    "name": "Free Shipping Threshold",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_free_shipping_threshold",
+        "label": "Enable Shipping Threshold",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "domestic_country_code",
+        "label": "Domestic Country Code (for more than 1 separate with a comma, EX 'US,GB')",
+        "default": "US,UK,RU"
+      },
+      {
+        "type": "number",
+        "id": "national_shipping",
+        "label": "Domestic Free Shipping Threshold (EX '49'- Numbers only and will work with your stores default currency)",
+        "default": 49
+      },
+      {
+        "type": "number",
+        "id": "international_shipping",
+        "label": "International Free Shipping Threshold (EX '99'- Numbers only and will work with your stores default currency)",
+        "default": 99
+      }
+    ]
+  },
+  {
+    "name": "Megamenu Setting",
+    "settings": [
+      {
+        "type": "color",
+        "id": "megamenu_bb_color",
+        "default": "#FFFFFF",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "id": "megamenu_list_title_color",
+        "default": "#1A1C15",
+        "label": "List Title Font Color"
+      },
+      {
+        "type": "select",
+        "id": "megamenu_list_title_fontsize",
+        "options": [
+          {
+            "value": "12px",
+            "label": "12px"
+          },
+          {
+            "value": "13px",
+            "label": "13px"
+          },
+          {
+            "value": "14px",
+            "label": "14px"
+          },
+          {
+            "value": "15px",
+            "label": "15px"
+          },
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "17px",
+            "label": "17px"
+          },
+          {
+            "value": "18px",
+            "label": "18px"
+          }
+        ],
+        "default": "16px",
+        "label": "List Title Font Size"
+      },
+      {
+        "type": "select",
+        "id": "megamenu_list_title_fontstyle",
+        "options": [
+          {
+            "value": "300",
+            "label": "Lighter",
+            "group": "Font Style"
+          },
+          {
+            "value": "400",
+            "label": "Normal",
+            "group": "Font Style"
+          },
+          {
+            "value": "600",
+            "label": "Bold",
+            "group": "Font Style"
+          },
+          {
+            "value": "700",
+            "label": "Bolder",
+            "group": "Font Style"
+          }
+        ],
+        "default": "400",
+        "label": "List Title Font Style"
+      },
+      {
+        "type": "color",
+        "id": "megamenu_link_color",
+        "default": "#1A1C15",
+        "label": "Link Color"
+      },
+      {
+        "type": "color",
+        "id": "megamenu_link_hover_color",
+        "default": "#119CF5",
+        "label": "Link Hover Color"
+      },
+      {
+        "type": "select",
+        "id": "megamenu_link_fontsize",
+        "options": [
+          {
+            "value": "12px",
+            "label": "12px"
+          },
+          {
+            "value": "13px",
+            "label": "13px"
+          },
+          {
+            "value": "14px",
+            "label": "14px"
+          },
+          {
+            "value": "15px",
+            "label": "15px"
+          },
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "17px",
+            "label": "17px"
+          },
+          {
+            "value": "18px",
+            "label": "18px"
+          }
+        ],
+        "default": "16px",
+        "label": "Link Font Size"
+      },
+      {
+        "type": "select",
+        "id": "megamenu_link_fontstyle",
+        "options": [
+          {
+            "value": "300",
+            "label": "Lighter",
+            "group": "Font Style"
+          },
+          {
+            "value": "400",
+            "label": "Normal",
+            "group": "Font Style"
+          },
+          {
+            "value": "600",
+            "label": "Bold",
+            "group": "Font Style"
+          },
+          {
+            "value": "700",
+            "label": "Bolder",
+            "group": "Font Style"
+          }
+        ],
+        "default": "400",
+        "label": "Link Font Style"
+      },
+      {
+        "type": "color",
+        "id": "megamenu_custom_link_color",
+        "default": "#1A1C15",
+        "label": "Custom Link Color"
+      },
+      {
+        "type": "color",
+        "id": "megamenu_custom_link_hover_color",
+        "default": "#119CF5",
+        "label": "Custom Link Hover Color"
+      },
+      {
+        "type": "select",
+        "id": "megamenu_custom_link_fontsize",
+        "options": [
+          {
+            "value": "12px",
+            "label": "12px"
+          },
+          {
+            "value": "13px",
+            "label": "13px"
+          },
+          {
+            "value": "14px",
+            "label": "14px"
+          },
+          {
+            "value": "15px",
+            "label": "15px"
+          },
+          {
+            "value": "16px",
+            "label": "16px"
+          },
+          {
+            "value": "17px",
+            "label": "17px"
+          },
+          {
+            "value": "18px",
+            "label": "18px"
+          }
+        ],
+        "default": "16px",
+        "label": "Custom Link Font Size"
+      },
+      {
+        "type": "select",
+        "id": "megamenu_custom_link_fontstyle",
+        "options": [
+          {
+            "value": "300",
+            "label": "Lighter",
+            "group": "Font Style"
+          },
+          {
+            "value": "400",
+            "label": "Normal",
+            "group": "Font Style"
+          },
+          {
+            "value": "600",
+            "label": "Bold",
+            "group": "Font Style"
+          },
+          {
+            "value": "700",
+            "label": "Bolder",
+            "group": "Font Style"
+          }
+        ],
+        "default": "400",
+        "label": "Custom Link Font Style"
+      },
+      {
+        "type": "select",
+        "id": "megamenu_line_spacing",
+        "label": "Megamenu line height",
+        "options": [
+          {
+            "value": "1",
+            "label": "Small"
+          },
+          {
+            "value": "2",
+            "label": "Normal"
+          },
+          {
+            "value": "3",
+            "label": "Medium"
+          },
+          {
+            "value": "4",
+            "label": "Large"
+          }
+        ],
+        "default": "2"
+      }
+    ]
+  },
+  {
+    "name": "Back to Top Arrow",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enablebacktotoparrow",
+        "label": "Enable Back to Top Arrow",
+        "default": true
+      }
+    ]
   },
   {
     "name": "t:settings_schema.colors.name",

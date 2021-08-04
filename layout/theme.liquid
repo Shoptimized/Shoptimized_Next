@@ -24,6 +24,7 @@
 
     {% render 'meta-tags' %}
 
+
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
@@ -39,6 +40,15 @@
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
+
+      {{ settings.countdown_1_value_font | font_face: font_display: 'swap' }}
+
+      {{ settings.countdown_2_value_font | font_face: font_display: 'swap' }}
+      {{ settings.countdown_2_label_font | font_face: font_display: 'swap' }}
+
+
+      {{ settings.product_quantity_font | font_face: font_display: 'swap' }}
+      {{ settings.product_scarcity_text_font | font_face: font_display: 'swap' }}
 
       :root {
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
@@ -57,6 +67,36 @@
         --color-base-accent-1: {{ settings.colors_accent_1.red }}, {{ settings.colors_accent_1.green }}, {{ settings.colors_accent_1.blue }};
         --color-base-accent-2: {{ settings.colors_accent_2.red }}, {{ settings.colors_accent_2.green }}, {{ settings.colors_accent_2.blue }};
         --payment-terms-background-color: {{ settings.colors_background_1 }};
+
+        --countdown-header_text_color: {{ settings.countdown_header_text_color }};
+        --countdown-1-times_color: {{ settings.countdown_1_text_color }};
+        --countdown-1-values_font: {{ settings.countdown_1_value_font.family }};
+        --countdown-1-desktop_values_fontsize: {{ settings.countdown_1_desktop_fontsize | append: 'px' }};
+        --countdown-1-mobile_values_fontsize: {{ settings.countdown_1_mobile_fontsize | append: 'px' }};
+        --countdown-1-desktop_label_fontsize: {{ settings.countdown_1_desktop_label_fontsize | append: 'px' }};
+        --countdown-1-mobile_label_fontsize: {{ settings.countdown_1_mobile_label_fontsize | append: 'px' }};
+
+
+
+        --countdown-2-values_color:{{ settings.countdown_2_value_color }};
+        --countdown-2-values_font: {{ settings.countdown_2_value_font.family }};
+        
+        --countdown-2-labels_color: {{ settings.countdown_2_label_color }};
+        --countdown-2-labels_font: {{ settings.countdown_2_label_font.family }};
+        --countdown-2-labels_fontsize: {{ settings.countdown_2_label_fontsize | append: 'px' }};
+
+        --countdown-2-values_back_color: {{ settings.countdown_2_value_background_color }};
+
+
+        --product-scarcity-text-color: {{ settings.product_scarcity_text_color }};
+        --product-scarcity-text-font: {{ settings.product_scarcity_text_font.family }};
+        --product-scarcity-text-fontsize: {{ settings.product_scarcity_text_fontsize }};
+        --product-quantity-color: {{ settings.product_quantity_color }};
+        --product-quantity-font: {{ settings.product_quantity_font.family }};
+        --product-quantity-fontsize: {{ settings.product_quantity_fontsize }};
+
+        --product-scarcity-progress-bar-back-color: {{ settings.product_scarcity_progress_bar_back_color }};
+        --product-scarcity-progress-bar-color: {{ settings.product_scarcity_progress_bar_color }};
       }
 
       *,
@@ -102,13 +142,23 @@
     {%- endunless -%}
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+
+  
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+    {{ 'country-flag.css' | asset_url | stylesheet_tag }}
+    {{ 'jquery.min.js' | asset_url | script_tag }}
+    {% include 'currencies' %}
+    {% comment %} {{ 'features.js' | asset_url | script_tag }} {% endcomment %}
   </head>
 
-  <body>
+  <body shop_base_currency_format = '{{ shop.currency }}'>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
 
+    {% section 'recognition_currency_switcher' %}
     {% section 'announcement-bar' %}
     {% section 'header' %}
 
@@ -118,6 +168,9 @@
 
     {% section 'footer' %}
 
+    {% if settings.enablebacktotoparrow %}
+      {% include 'back-to-top' %}
+    {% endif %}
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
     </ul>

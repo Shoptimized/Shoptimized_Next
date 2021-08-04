@@ -1,0 +1,158 @@
+{{ 'alternating-content.css' | asset_url | stylesheet_tag }}
+{% assign position_number = 0 %}
+{% assign content_position = "left" %}
+<div class="alternating">
+    {%- for block in section.blocks -%}
+        {% assign position_number = position_number | plus: 1 %}
+        {% assign odd_even = position_number | modulo: 2 %}
+        {% if odd_even == 0 %}
+            {% assign content_position = "left" %}
+        {% else %}
+            {% assign content_position = "right" %}
+        {% endif %}
+        {%- case block.type -%}
+            {%- when 'image' -%}
+                {% include 'alternating-image', content_position = content_position %}
+            {%- when 'video' -%}
+                {% include 'alternating-video', content_position = content_position %}
+        {%- endcase -%}
+    {%- endfor -%}
+</div>
+
+
+{% schema %}
+{
+    "name": "Alternating Content",
+    "max_blocks": 3,
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Image",
+            "settings": [
+                {
+                    "type": "select",
+                    "id":"background_style",
+                    "label": "Background Style",
+                    "options": [
+                        {
+                            "value": "default",
+                            "label": "Default"
+                        },
+                        {
+                            "value": "light",
+                            "label": "Light"
+                        },
+                        {
+                            "value": "color",
+                            "label": "Color"
+                        },
+                        {
+                            "value": "gradient",
+                            "label": "Bradient"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "alternating_header",
+                    "label": "Heading",
+                    "default": "Alternating content"
+                },
+                {
+                    "type": "richtext",
+                    "id": "alternating_content",
+                    "label": "Text",
+                    "default": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.</p>"
+                },
+                {
+                    "type": "text",
+                    "id": "alternating_button_text",
+                    "label": "Button Text",
+                    "default": "This is your call to action"
+                },
+                {
+                    "type": "url",
+                    "id": "alternating_button_link",
+                    "label": "Button link"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "alternating_image",
+                    "label": "Image",
+                    "info": "1020 x 700px .png recommended"
+                }
+            ]
+        },
+        {
+            "type": "video",
+            "name": "Video",
+            "settings": [
+                {
+                    "type": "select",
+                    "id":"background_style",
+                    "label": "Background Style",
+                    "options": [
+                        {
+                            "value": "default",
+                            "label": "Default"
+                        },
+                        {
+                            "value": "light",
+                            "label": "Light"
+                        },
+                        {
+                            "value": "color",
+                            "label": "Color"
+                        },
+                        {
+                            "value": "gradient",
+                            "label": "Bradient"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "id": "alternating_header",
+                    "label": "Heading",
+                    "default": "Alternating content"
+                },
+                {
+                    "type": "richtext",
+                    "id": "alternating_content",
+                    "label": "Text",
+                    "default": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.</p>"
+                },
+                {
+                    "type": "text",
+                    "id": "alternating_button_text",
+                    "label": "Button Text",
+                    "default": "This is your call to action"
+                },
+                {
+                    "type": "url",
+                    "id": "alternating_button_link",
+                    "label": "Button link"
+                },
+                {
+                    "type": "text",
+                    "id": "video_url",
+                    "label": "Youtube or Vimeo link",
+                    "info": "Accepts YouTube or Vimeo links",
+                    "placeholder": "Past a link"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "alternating_back_image",
+                    "label": "Video thumbnail",
+                    "info": "1020 x 700px .png recommended"
+                }
+            ]
+        }
+    ],
+   "presets": [
+       {
+           "name": "Alternating Content"
+       }
+   ]
+}
+{% endschema %}

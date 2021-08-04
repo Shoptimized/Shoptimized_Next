@@ -545,7 +545,33 @@
 {% schema %}
 {
   "name": "t:sections.header.name",
+  "blocks": [
+    {
+      "type": "Mega-Menu",
+      "name": "Megamenu",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enable_this_megamenu",
+          "label": "Enable Magemenu",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_this_megamenu_onl",
+          "label": "Enable Megamenu as Collection Grid Only",
+          "default": false
+        }
+      ]
+    }
+  ],
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_megamenu",
+      "label": "Use Megamenu",
+      "default": false
+    },
     {
       "type": "image_picker",
       "id": "logo",

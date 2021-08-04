@@ -1,0 +1,10 @@
+{% unless template contains 'product' or template contains 'index' or template == 'collection' or template == 'collection.list' %}
+	<script src="{{ '//cdn.shopify.com/s/javascripts/currencies.js' }}" defer></script>
+	<script src="{{ 'jquery.currencies.min.js' | asset_url }}" defer></script>
+{% endunless %}
+
+<script data-no-instant>
+
+    document.addEventListener("DOMContentLoaded", function () {
+    });
+</script>

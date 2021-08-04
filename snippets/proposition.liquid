@@ -1,0 +1,49 @@
+<style>
+    .product-reasons__list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-left: 0;
+        list-style-type: none;
+    }
+    .product-reasons__list li{
+        width: 21%;
+        margin: 5px;
+        list-style-type: none;
+    }
+    .product-reasons__list li img{
+        display: block;
+        width: 100%;
+        max-width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @media screen and (max-width: 768px) {
+        .product-reasons__list li {
+            width: 27%;
+        }
+    }
+</style>
+
+
+<div class="product-reasons">
+    <ul class="product-reasons__list">
+        {% for i in (1..7) %}
+            {% assign reason = 'top_reasons_' | append: i %}
+            {% assign reason_image_display = 'top_reasons_' | append: i | append: '_display' %}
+            {% assign reason_image = 'top_reasons_' | append: i | append: '_image' %}
+            {% assign reason_image = settings[reason_image] %}
+            {% unless settings[reason_image_display] %}
+                {% continue %}
+            {% endunless %}
+
+            <li class="product-reasons__reason">
+                <picture class="lazy">
+                    <img data-srcset="{{ reason_image | img_url: '100x' }} 1x, {{ reason_image | img_url: '200x' }} 2x"
+                        srcset="{{ reason_image | img_url: '100x' }}"
+                        alt="Image of {{ reason | escape }}">
+                </picture>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

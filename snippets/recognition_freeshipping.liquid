@@ -1,0 +1,44 @@
+{% assign data_recog_text = settings.recog_text %}
+<div class="recognition"
+    data-recog-text = "{{ data_recog_text }}"
+>
+    {% if settings.enable_free_shipping_threshold %}
+        <span class="js-product-motivator-text-main"></span>
+    {% endif %}
+    <span class="js-country-name product-motivator__country-text"></span>
+    {% if settings.show_current_flag %}
+        <span class="js-country-flag product-motivator__country-flag"></span>        
+    {% endif %}
+</div>
+
+
+<script>
+    var user_country_text = $('.product-motivator__country-text');
+    var user_country_flag = $('.product-motivator__country-flag');
+    var recognition = $(".recognition");
+    $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
+        user_country_text.text(data.countryName);
+        user_country_flag.html('<i class="country-flag country-flag-' + data.countryCode.toLowerCase()+ '"></i>');
+
+        {% if settings.enable_free_shipping_threshold %}
+            var regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
+
+            var get_current_currnecy = Intl.NumberFormat('en-US',{style: 'currency',currency: '{{ shop.currency }}'});
+
+            var domestic_country_code = '{{ settings.domestic_country_code }}'.split(',');
+            var free_shipping_price = parseFloat('{{ settings.national_shipping }}');
+
+
+            if(domestic_country_code.indexOf(data.countryCode) == -1) {
+                free_shipping_price = parseFloat('{{ settings.international_shipping }}');
+            }
+            free_shipping_price = get_current_currnecy.format(free_shipping_price);
+            var recognition_text = recognition.attr('data-recog-text');
+
+
+            var changed_currency = '<span class="price-item js-free-shipping-format money" shop_base_currency="'+ free_shipping_price +'">'.concat(free_shipping_price, "</span>");
+            recognition_text = (recognition_text = (recognition_text = (recognition_text = (recognition_text = (recognition_text = recognition_text.replace("XXX", changed_currency)).replace("XX", changed_currency)).replace("$$", changed_currency)).replace("$x", changed_currency)).replace("$X", recognition_text)).replace("SYMBOL", "");
+            $('.js-product-motivator-text-main').html(recognition_text);
+        {% endif %}
+    });
+</script>

@@ -1,0 +1,212 @@
+{% comment %} {{ 'countdown-style.css' | asset_url | stylesheet_tag }} {% endcomment %}
+{% assign countdown_1_round_color = settings.countdown_1_round_color %}
+
+<style>
+    .countdown-header {
+        color: var(--countdown-header_text_color);
+    }
+    .clock-item {
+        position: relative;
+        padding: 3px;
+    }
+    .text {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: fit-content;
+        margin: auto;
+        text-align: center;
+        width: 100%;
+    }
+    .text p{
+        color: var(--countdown-1-times_color);
+        padding: 0;
+        margin: 0;
+        font-size: var(--countdown-1-desktop_label_fontsize);
+        font-family: var(--countdown-1-values_font);
+    }
+    .text p.val {
+        font-size: var(--countdown-1-desktop_values_fontsize);
+        font-family: var(--countdown-1-values_font);
+    }
+    .clock-canvas {
+        width: 100%;
+        height: fit-content;
+    }
+    @media only screen and (max-width: 767px){
+        .text p{
+            font-size: var(--countdown-1-mobile_label_fontsize);
+        }
+        .text p.val {
+            font-size: var(--countdown-1-mobile_values_fontsize);
+        }
+    }
+</style>
+
+
+<div id="countdown-timer" expire = '{{ expire }}'>
+    <h3 class="countdown-header">{{ countdown_header_text }}</h3>
+    <div class="countdown-container">
+        <div class="clock row">
+
+            <div class="clock-item clock-days countdown-time-value col-xs-6 col-sm-6 col-md-3">
+                <div class="canvas-days clock-canvas">
+                    <canvas id="canvas-days"></canvas>
+                </div>
+
+                <div class="text">
+                    <p class="val">0</p>
+                    <p class="type-days type-time">DAYS</p>
+                </div><!-- /.text -->
+            </div><!-- /.clock-item -->
+
+            <div class="clock-item clock-hours countdown-time-value col-xs-6 col-sm-6 col-md-3">
+                <div class="canvas-hours clock-canvas">
+                    <canvas id="canvas-hours"></canvas>
+                </div>
+
+                <div class="text">
+                    <p class="val">0</p>
+                    <p class="type-hours type-time">HOURS</p>
+                </div><!-- /.text -->
+            </div><!-- /.clock-item -->
+
+            <div class="clock-item clock-minutes countdown-time-value col-xs-6 col-sm-6 col-md-3">
+                <div class="canvas-minutes clock-canvas">
+                    <canvas id="canvas-minutes"></canvas>
+                </div>
+
+                <div class="text">
+                    <p class="val">0</p>
+                    <p class="type-minutes type-time">MINUTES</p>
+                </div><!-- /.text -->
+            </div><!-- /.clock-item -->
+            
+            <div class="clock-item clock-seconds countdown-time-value col-xs-6 col-sm-6 col-md-3">
+                <div class="canvas-seconds clock-canvas">
+                    <canvas id="canvas-seconds"></canvas>
+                </div>
+
+                <div class="text">
+                    <p class="val">0</p>
+                    <p class="type-seconds type-time">SECONDS</p>
+                </div><!-- /.text -->
+            </div><!-- /.clock-item -->
+
+        </div><!-- /.clock -->
+    </div>
+</div>
+
+<script>
+    // countdown-timer/////////////////////
+    // ct is countdown-timer tag
+    var load_chack = false;
+    var ct = document.getElementById('countdown-timer');
+    if(ct) {
+        var expire = '{{ expire }}';
+        // ctdf is count down day front
+        var ctdayf = $('.clock-days .val');
+        var cthourf = $('.clock-hours .val');
+        var ctminf = $('.clock-minutes .val');
+        var ctsecf = $('.clock-seconds .val');
+
+        if (expire) {
+            if(!localStorage.getItem('expire' + expire)) {
+                var end_date = Date.parse(new Date()) + (1000 * 3600 * expire);
+                localStorage.setItem('expire' + expire, end_date);
+            }
+            startCounters(ctdayf,cthourf,ctminf,ctsecf, expire);
+            responsive();
+        }
+    }
+    
+    function responsive() {
+
+        $(window).on('redraw', function() {
+            switched = false;
+            load_chack = false;
+        });
+        $(window).on('resize', function() {
+            load_chack = false;
+        });
+    }
+
+    function set_canvas(target, angle, color) {
+        var canvas = document.getElementById('canvas-' + target);
+        canvas.width = $('.clock-canvas').width();
+        canvas.height = $('.clock-canvas').width();
+        var context = canvas.getContext('2d');
+
+        var width =canvas.width;
+        var radius = width / 2 - 5;
+        var x = width / 2;
+        var y = width / 2;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.beginPath();
+        context.arc(x, y, radius, convertToDeg(0), convertToDeg(angle));
+
+        context.lineWidth = 2;
+//        context.strokeStyle = '#7995D5';
+        context.strokeStyle = color;
+        context.stroke();
+    }
+    function convertToDeg(degree) {
+        return (Math.PI/180) * degree - (Math.PI/180) * 90;
+    }
+
+
+
+    function startCounters(ctdayf, cthourf, ctminf, ctsecf, expire) {
+        var oneDay = 1000 * 60 * 60 * 24;
+        var oneHour = 1000 * 60 * 60;
+        var oneMin = 1000 * 60;
+        var oneSec = 1000;
+        var interval = setInterval( function() {
+            var time_remaining = new Date(parseInt(localStorage.getItem('expire' + expire))) - new Date();
+            var day_remaining = time_remaining % oneDay;
+            var hour_remaining = day_remaining % oneHour;
+            var min_remaining = hour_remaining % oneMin;
+
+            var days =  Math.trunc( time_remaining / oneDay );
+            var hours = Math.trunc( day_remaining / oneHour);
+            var minutes = Math.trunc( hour_remaining / oneMin);
+            var seconds = Math.trunc( min_remaining / oneSec);
+            if(time_remaining <= 0)
+            {
+                localStorage.setItem('expire' + expire, Date.parse(new Date()) + (1000 * 3600 * expire));
+                return;
+            }
+            if(!load_chack) {
+                ctdayf.text(days);
+                set_canvas('days', (10 - days) * 36, '{{countdown_1_round_color}}');
+                cthourf.text(hours);
+                set_canvas('hours',  (24 - hours) * 15 , '{{countdown_1_round_color}}');
+                ctminf.text(minutes);
+                set_canvas('minutes', (60 - minutes) * 6, '{{countdown_1_round_color}}');
+                ctsecf.text(seconds);
+                set_canvas('seconds', (60-seconds) * 6, '{{countdown_1_round_color}}');
+                load_chack = true;
+            }
+            else {
+                if (seconds < 1 ) {
+                    if (minutes < 1) {
+                        if (hours < 1) {
+                            if (days > 0) {
+                                ctdayf.text(days);
+                                set_canvas('days', (10 - days) * 36, '{{countdown_1_round_color}}');
+                            }
+                        }               
+                        cthourf.text(hours);
+                        set_canvas('hours',  (24 - hours) * 15 , '{{countdown_1_round_color}}');
+                    }
+                    ctminf.text(minutes);
+                    set_canvas('minutes', (60 - minutes) * 6, '{{countdown_1_round_color}}');
+                }
+                ctsecf.text(seconds);
+                set_canvas('seconds', (60-seconds) * 6, '{{countdown_1_round_color}}');
+            }
+        }, 1000);
+    }
+</script>
