@@ -48,12 +48,13 @@
                     >
                   </div>
                 </div>
-
+				<span class="button-Section">View Collection</span>
                 <div class="card__text card__text-spacing card-colored card__text-hover{% if section.settings.image_padding == false %} color-{{ section.settings.color_scheme }}{% endif %}">
                   {% unless section.settings.image_padding %}<div class="overlay-card"></div>{% endunless %}
+                  
                   <h3>
                     {%- if block.settings.collection.title != blank -%}
-                      {{- block.settings.collection.title | escape -}}<span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span>
+                      {{- block.settings.collection.title | escape -}}{% comment %}<span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}{% endcomment %}</span>
                     {%- else -%}
                       {{ 'onboarding.collection_title' | t }}
                     {%- endif -%}
@@ -108,7 +109,7 @@
 {
   "name": "t:sections.collection-list.name",
   "tag": "section",
-  "class": "spaced-section collection-list-section",
+  "class": "collection-list-section",
   "max_blocks": 12,
   "settings": [
     {

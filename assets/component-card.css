@@ -1,3 +1,82 @@
+.spr-badge-starrating .spr-icon {
+    font-size: 100%;
+    color: #E7711A;
+}
+.card .button-Section{
+  background: #3167EB;
+  border-radius: 5px;
+  padding: 18px 0px;
+  display: inline-block;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  font-family: DM Sans;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  text-align: center;
+  max-width: 181px;
+  margin: 0 auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.6s;
+}
+.card:hover .button-Section {
+    opacity: 1;
+    visibility: visible;
+}
+.card--product .card__inner .media{
+	padding: 0 !important;
+}
+.card--product .card__inner .media .motion-reduce{
+  position: relative;
+  max-height: 210px;
+  object-fit: cover;
+  min-height: 210px;
+}
+.collection .card-wrapper{
+  position: relative;
+}
+.collection .card-wrapper button[aria-label="Add to wishlist"]{
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 3;
+}
+.collection .card-wrapper button[aria-label="Add to wishlist"].active{
+	background: #333;
+}
+.collection .card-wrapper button[aria-label="Add to wishlist"].active svg{
+  fill: white;
+}
+.card .card__text{
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  justify-content: center;
+}
+.card .card__text h3{
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+}
 .card {
   display: block;
   overflow: hidden;
@@ -12,7 +91,18 @@
   background-color: rgba(var(--color-foreground), 0.04);
   color: rgb(var(--color-foreground));
 }
-
+.card .card--stretch .media{
+	position: relative;
+}
+.card .card--stretch .media:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
 .card__text {
   display: flex;
   align-items: center;
@@ -73,9 +163,9 @@
   padding: 3rem;
 }
 
-.card-colored.color-background-1 {
+/* .card-colored.color-background-1 {
   background-color: rgba(var(--color-foreground), 0.04);
-}
+} */
 
 .card--media .card__text-spacing {
   padding: 2rem;
@@ -173,7 +263,14 @@
 
 .card-information__text {
   display: block;
-  padding-right: 1.2rem;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  text-decoration: none !important;
+  color: #1D1F1E;
 }
 
 .card-information__wrapper {
@@ -229,17 +326,14 @@
 }
 
 .card__badge {
-  bottom: 1rem;
+  bottom: auto;
+  top: 1rem;
+  left: 0;
   display: flex;
   flex-wrap: wrap;
-  left: 1rem;
   position: absolute;
 }
 
-.card__badge > * {
-  margin-right: 1rem;
-  margin-top: 0.5rem;
-}
 
 .overlay-card {
   position: absolute;
@@ -305,5 +399,45 @@
   .card-wrapper:hover .card.card--search {
     background-color: rgba(var(--color-card-hover), 0.06);
     transition: background-color var(--duration-long) ease;
+  }
+}
+@media(max-width:1024px){
+  .card .button-Section{
+    max-width: 130px;
+    font-size: 15px;
+    padding: 15px 0;
+  }
+  .collection-list-section .collection-list-wrapper .collection-list {
+    margin-left: -20px;
+  }
+  .collection-list-section .collection-list-wrapper .collection-list .collection-list__item {
+    padding-left: 20px;
+  }
+}
+@media(max-width:749px){
+  .collection-list-section .collection-list-wrapper .collection-list .collection-list__item {
+    padding-left: 20px;
+    width: 50%;
+    padding-bottom: 20px;
+  }
+}
+@media(max-width:480px){
+  .collection-list-section{
+  	padding: 50px 0;
+  }
+  .collection-list-section .collection-list-wrapper .title-wrapper-with-link{
+  	margin-bottom: 25px;
+    margin-top: 0;
+  }
+  .collection-list-section .collection-list-wrapper .title-wrapper-with-link .collection-list-title{
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+@media(max-width:375px){
+  .card .button-Section {
+    max-width: 110px;
+    font-size: 13px;
+    padding: 10px 0;
   }
 }

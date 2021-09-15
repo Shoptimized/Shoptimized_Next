@@ -36,7 +36,7 @@
 }
 
 .deferred-media__poster-button {
-  background-color: rgb(var(--color-background));
+  background: rgba(0, 0, 0, 0.65);
   border: 0.1rem solid rgba(var(--color-foreground), 0.1);
   border-radius: 50%;
   color: rgb(var(--color-foreground));
@@ -50,7 +50,7 @@
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
   transition: transform var(--duration-short) ease, color var(--duration-short) ease;
-  z-index: 1;
+  z-index: 3;
 }
 
 .deferred-media__poster-button:hover {

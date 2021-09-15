@@ -126,7 +126,9 @@
 .color-accent-2 {
   --color-card-hover: var(--color-base-solid-button-labels);
 }
-
+body{
+  font-family: "DM Sans"!important;
+}
 /* base */
 
 .no-js:not(html) {
@@ -150,19 +152,23 @@ html.no-js .no-js-hidden {
 }
 
 .page-width {
-  max-width: 120rem;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 30px;
 }
-
+  @media(max-width:480px){
+    .page-width {
+      padding: 0 15px;
+    }
+  }
 .page-width-desktop {
   padding: 0;
   margin: 0 auto;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1025px) {
   .page-width {
-    padding: 0 5rem;
+    padding: 0 120px;
   }
 
   .page-width--narrow {
@@ -181,8 +187,8 @@ html.no-js .no-js-hidden {
   }
 
   .page-width-desktop {
-    max-width: 120rem;
-    padding: 0 5rem;
+    max-width: 1440px;
+    padding: 0 120px;
   }
 }
 
@@ -191,7 +197,7 @@ html.no-js .no-js-hidden {
 }
 
 .spaced-section {
-  margin-top: 5rem;
+  margin-top: 160px;
 }
 
 .spaced-section:last-child {
@@ -1588,7 +1594,7 @@ input[type='checkbox'] {
 .cart-count-bubble {
   position: absolute;
   background-color: rgb(var(--color-base-accent-1));
-  color: rgb(var(--color-base-solid-button-labels));
+  color: #fff;
   height: 1.7rem;
   width: 1.7rem;
   border-radius: 100%;
@@ -1596,9 +1602,10 @@ input[type='checkbox'] {
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
-  bottom: 0.8rem;
-  left: 2.2rem;
-  line-height: 1.1;
+  bottom: auto;
+  left: 2.7rem;
+  top:-7px;
+  line-height: 2.1;
 }
 
 /* section-announcement-bar */
@@ -2008,7 +2015,7 @@ details[open] > .header__icon--menu .icon-hamburger {
 
 .header__active-menu-item {
   transition: text-decoration-thickness var(--duration-short) ease;
-  color: rgb(var(--color-foreground));
+  color: rgb(var(--color-base-background-1));
   text-decoration: underline;
   text-underline-offset: 0.3rem;
 }

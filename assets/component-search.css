@@ -1,3 +1,6 @@
+.form-Mobile{
+	display: none;
+}
 .search__input.field__input {
   padding-right: 5rem;
 }
@@ -5,7 +8,9 @@
 .search__button .icon {
   height: 1.8rem;
 }
-
+form.search.search-modal__form button.search__button.field__button.focus-inset svg {
+    stroke: #fff;
+}
 /* Remove extra spacing for search inputs in Safari */
 input::-webkit-search-decoration {
   -webkit-appearance: none;

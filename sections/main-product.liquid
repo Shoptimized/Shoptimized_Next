@@ -40,50 +40,26 @@
 <section class="page-width">
     <div class="product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
         <div class="grid__item product__media-wrapper">
-        <slider-component class="slider-mobile-gutter">
-            <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
-            {{ "accessibility.skip_to_product_info" | t }}
-            </a>
-            <ul class="product__media-list grid grid--peek list-unstyled slider slider--mobile" role="list">
-            {%- if product.selected_or_first_available_variant.featured_media != null -%}
-                {%- assign media = product.selected_or_first_available_variant.featured_media -%}
-                <li class="product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
-                {% render 'product-thumbnail', media: media, position: 'featured', loop: section.settings.enable_video_looping, modal_id: section.id %}
+         <product-gallery class="product-gallery">
+            {%- if product.media.size > 1 -%}
+            <ul class="product-gallery__nav">
+              {%- for media in product.media -%}
+                <li class="product-gallery__nav-item {% if media.id == product.selected_or_first_available_variant.featured_media.id %}product-gallery__nav-item--active{% endif %}" data-media-id="{{ media.id }}">
+                  {% render 'product-thumbnail', media: media %}
                 </li>
-            {%- endif -%}
-            {%- for media in product.media -%}
-                {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-                <li class="product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
-                    {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id %}
-                </li>
-                {%- endunless -%}
-            {%- endfor -%}
+              {%- endfor -%}
             </ul>
-            <div class="slider-buttons slider-buttons--overlay no-js-hidden{% if product.media.size < 2 %} small-hide{% endif %}">
-            <div class="slider-counter caption">
-                <span class="slider-counter--current">1</span>
-                <span aria-hidden="true"> / </span>
-                <span class="visually-hidden">{{ 'accessibility.of' | t }}</span>
-                <span class="slider-counter--total">{{ product.media.size }}</span>
+            {%- endif -%}
+            <div class="product-gallery__images">
+              {%- for media in product.media -%}
+                <div class="product-gallery__image {% if media.id == product.selected_or_first_available_variant.featured_media.id or product.media.size == 1 %}product-gallery__image--active{% endif %}" data-media-id="{{ media.id }}">
+                  {% render 'product-thumbnail', media: media %}
+                </div>
+              {%- endfor -%}
+              <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+              <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
             </div>
-            <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
-            <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
-            </div>
-        </slider-component>
-        {%- if first_3d_model -%}
-            <button
-            class="button button--full-width product__xr-button"
-            type="button"
-            aria-label="{{ 'products.product.xr_button_label' | t }}"
-            data-shopify-xr
-            data-shopify-model3d-id="{{ first_3d_model.id }}"
-            data-shopify-title="{{ product.title | escape }}"
-            data-shopify-xr-hidden
-            >
-            {% render 'icon-3d-model' %}
-            {{ 'products.product.xr_button' | t }}
-            </button>
-        {%- endif -%}
+          </product-gallery>
         </div>
         <div class="product__info-wrapper grid__item">
         <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
@@ -101,11 +77,21 @@
                 <h1 class="product__title" {{ block.shopify_attributes }}>
                 {{ product.title | escape }}
                 </h1>
+                <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+            {%- when 'people-view' -%}
+                <div class="box-product">
+                    <ul>
+                       <li>{% render 'icon-cart-view' %} 2 people have this item in their cart and are ready to checkout</li>
+                        <li>{% render 'icon-stock' %} Only 4 left in stock</li>
+                        <li>{% render 'icon-view' %} 10 people are currently viewing this product</li>
+                        <li>{% render 'icon-delivery' %} Estimated delivery in 3 business days</li>
+                    </ul>
+                </div>
             {%- when 'price' -%}
                 <div class="no-js-hidden" id="price-{{ section.id }}" {{ block.shopify_attributes }}>
                 {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
                 </div>
-                <div {{ block.shopify_attributes }}>
+                <div class="product2" {{ block.shopify_attributes }}>
                 {%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                     {{ form | payment_terms }}
@@ -135,7 +121,10 @@
                     </div>
                 </details>
                 </div>
-            {%- when 'quantity_selector' -%}
+                {% when 'delivery' %}
+              <div class="delivery_time">
+                <p>{% render 'delivery-icon' %} Order in the next 9 hours 19 minutes to get it by Tuesday Aug 10 
+                 {%- when 'quantity_selector' -%}
                 <div class="product-form__input product-form__quantity" {{ block.shopify_attributes }}>
                 <label class="form__label" for="Quantity-{{ section.id }}">
                     {{ 'products.product.quantity.label' | t }}
@@ -165,38 +154,17 @@
                 </modal-opener>
                 <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">{{ block.settings.link_label }}</a>
             {%- when 'share' -%}
+                  <div class="Add_Wishlist"><a class="btn-wishlist" href="#">{% render 'icon-wishlist' %}Add to Wishlist</a>
                 <share-button class="share-button" {{ block.shopify_attributes }}>
-                <button class="share-button__button button button--tertiary hidden">
+                  <button class="share-button__button hidden">
                     {% render 'icon-share' %}
-                    {{ 'general.share.share' | t }}
-                </button>
-                <details>
-                    <summary class="share-button__button button button--tertiary">
-                    {% render 'icon-share' %}
-                    {{ 'general.share.share' | t }}
-                    </summary>
-                    <div class="share-button__fallback">
-                    <div class="field">
-                        <input type="text"
-                            class="field__input"
-                            id="url"
-                            value="{{ shop.url | append: product.url }}"
-                            placeholder="{{ 'general.share.share_url' | t }}"
-                            onclick="this.select();"
-                            readonly
-                        >
-                        <label class="field__label" for="url">{{ 'general.share.share_url' | t }}</label>
-                    </div>
-                    <button class="button button--tertiary">
-                        {% render 'icon-clipboard' %}
-                        {{ 'general.share.copy_to_clipboard' | t }}
-                    </button>
-                    <span id="ShareMessage-{{ section.id }}" class="share-button__message hidden" role="status" aria-hidden="true">
-                        {{ 'general.share.success_message' | t }}
-                    </span>
-                    </div>
-                </details>
+                    {{ block.settings.share_label | escape }}
+                  </button>
+                  <div class="share-button__button">
+                    {% render 'share-icon' %}
+                  </div>
                 </share-button>
+              </div>
                 <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
             {%- when 'variant_picker' -%}
                 {%- unless product.has_only_default_variant -%}
@@ -252,7 +220,7 @@
                     </variant-selects>
                 {%- endif -%}
                 {%- endunless -%}
-
+				<div class="inputqty-add-to clearfix ">
                 <noscript>
                 <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
                     <label class="form__label" for="Variants-{{ section.id }}">{{ 'products.product.product_variants' | t }}</label>
@@ -275,7 +243,7 @@
                 </div>
                 </noscript>
             {%- when 'buy_buttons' -%}
-                <div {{ block.shopify_attributes }}>
+                <div class="product-add-to" {{ block.shopify_attributes }}>
                 <product-form class="product-form">
                     {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
@@ -286,6 +254,7 @@
                         class="product-form__submit button button--full-width {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}button--secondary{% else %}button--primary{% endif %}"
                         {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                         >
+                            {% render 'icon-add-cart' %}
                             {%- if product.selected_or_first_available_variant.available -%}
                             {{ 'products.product.add_to_cart' | t }}
                             {%- else -%}
@@ -330,7 +299,7 @@
                     </template>
                 </pickup-availability>
                 </div>
-
+                </div>
                 <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
             {%- when 'countdown-timer' -%}
                 {% if product.available %}
@@ -471,6 +440,16 @@
         </modal-dialog>
     {%- endfor -%}
 </section>
+<section class="section_content">
+    <div class="page-width">
+        {% render 'tabs-product' %}
+    </div>
+</section>
+<section class="section-recently-viewed">
+    <div class="page-width">
+        {% render 'recently-viewed' %} 
+    </div>
+</section>
 
 {% javascript %}
     class ProductModal extends ModalDialog {
@@ -501,7 +480,81 @@
             activeMedia.loadContent();
         }
     }
+    class ProductGallery extends HTMLElement {
+  constructor() {
+    super();
+    this.init()
 
+    // Add resize observer to update container height
+    const resizeObserver = new ResizeObserver(entries => this.update());
+    resizeObserver.observe(this);
+
+    // Bind event listeners
+    this.navItems.forEach(item => item.addEventListener('click', this.onNavItemClick.bind(this)))
+    this.prevButton.addEventListener('click', this.onButtonClick.bind(this));
+    this.nextButton.addEventListener('click', this.onButtonClick.bind(this));
+    // Listen for variant selection change to make current variant image active
+    window.addEventListener('message', this.onVariantChange.bind(this))
+  }
+
+  init() {
+    // Set up our DOM element variables
+    this.imagesContainer = this.querySelector('.product-gallery__images');
+    this.navItems = this.querySelectorAll('.product-gallery__nav-item');
+    this.images = this.querySelectorAll('.product-gallery__image');
+    this.prevButton = this.querySelector('button[name="previous"]');
+    this.nextButton = this.querySelector('button[name="next"]');
+    // If there is no active images set the first image to active
+    if (this.findCurrentIndex() === -1) {
+      this.setCurrentImage(this.images[0])
+    }
+  }
+
+  onVariantChange(event) {
+    if (!event.data || event.data.type !== 'variant_changed') return 
+    const currentImage = Array.from(this.images).find(item => item.dataset.mediaId == event.data.variant.featured_media.id)
+    if (currentImage) {
+      this.setCurrentImage(currentImage)
+    }
+  }
+
+  onNavItemClick(event) {
+    const mediaId = event.target.closest('li').dataset.mediaId
+    this.images.forEach(item => item.classList.remove('product-gallery__image--active'))
+    this.setCurrentImage(Array.from(this.images).find(item => item.dataset.mediaId === mediaId))
+  }
+
+  update() {
+    this.style.height = `${this.imagesContainer.offsetHeight}px`
+    this.prevButton.removeAttribute('disabled')
+    this.nextButton.removeAttribute('disabled')
+    if (this.findCurrentIndex() === 0) this.prevButton.setAttribute('disabled', true)
+    if (this.findCurrentIndex() === this.images.length - 1) this.nextButton.setAttribute('disabled', true)
+  }
+
+  setCurrentImage(elem) {
+    this.images.forEach(item => item.classList.remove('product-gallery__image--active'))
+    elem.classList.add('product-gallery__image--active')
+    this.update()
+  }
+
+  findCurrentIndex() {
+    return Array.from(this.images).findIndex(item => item.classList.contains('product-gallery__image--active'))
+  }
+
+  onButtonClick(event) {
+    event.preventDefault();
+    let index = this.findCurrentIndex()
+    if (event.currentTarget.name === 'next') {
+      index++
+    } else {
+      index--
+    }
+    this.setCurrentImage(this.images[index])
+  }
+}
+
+customElements.define('product-gallery', ProductGallery);
     customElements.define('product-modal', ProductModal);
 {% endjavascript %}
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
@@ -571,6 +624,10 @@
         "limit": 1
         },
         {
+        "type": "delivery",
+            "name": "Deelivery"
+        },
+        {
         "type": "variant_picker",
         "name": "t:sections.main-product.blocks.variant_picker.name",
         "limit": 1,
@@ -637,6 +694,10 @@
             "content": "t:sections.main-product.blocks.share.settings.title_info.content"
             }
         ]
+        },
+        {
+            "type": "people-view",
+            "name": "People View"
         },
         {
             "type": "countdown-timer",

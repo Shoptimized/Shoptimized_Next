@@ -1,3 +1,10 @@
+<style>
+  .image-currency{
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+  }
+</style>
 {% assign data_recog_text = settings.recog_text %}
 <div class="recognition"
     data-recog-text = "{{ data_recog_text }}"
@@ -14,7 +21,9 @@
 
 <script>
     var user_country_text = $('.product-motivator__country-text');
+
     var user_country_flag = $('.product-motivator__country-flag');
+
     var recognition = $(".recognition");
     $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
         user_country_text.text(data.countryName);
@@ -35,10 +44,87 @@
             free_shipping_price = get_current_currnecy.format(free_shipping_price);
             var recognition_text = recognition.attr('data-recog-text');
 
-
+		    var a = user_country_text.text(data.countryName); 
+      
             var changed_currency = '<span class="price-item js-free-shipping-format money" shop_base_currency="'+ free_shipping_price +'">'.concat(free_shipping_price, "</span>");
             recognition_text = (recognition_text = (recognition_text = (recognition_text = (recognition_text = (recognition_text = recognition_text.replace("XXX", changed_currency)).replace("XX", changed_currency)).replace("$$", changed_currency)).replace("$x", changed_currency)).replace("$X", recognition_text)).replace("SYMBOL", "");
             $('.js-product-motivator-text-main').html(recognition_text);
+
         {% endif %}
     });
+</script>
+<script>
+  $( document ).ready(function() {
+      var a = $(".selectedvalue").text();
+      console.log($(".selectedvalue").text())
+      if( a == "USD" ){
+        var b = $(".USD").attr("srcset");
+        $(".product-motivator__country-text").text("USD");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+b+'">')
+      } else if ( a == "CAD" ){
+        var b = $(".CAD").attr("srcset");
+        $(".product-motivator__country-text").text("CAD");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+b+'">')
+      } else if ( a == "INR" ){
+        var b = $(".INR").attr("srcset");
+        $(".product-motivator__country-text").text("INR");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+b+'">')
+      } else if ( a == "GBP" ){
+        var b = $(".GBP").attr("srcset");
+        $(".product-motivator__country-text").text("GBP");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+b+'">')
+      } else if ( a == "AUD" ){
+        var b = $(".AUD").attr("srcset");
+        $(".product-motivator__country-text").text("AUD");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+b+'">')
+      } else if ( a == "EUR" ){
+        var b = $(".EUR").attr("srcset");
+        $(".product-motivator__country-text").text("EUR");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+b+'">')
+      } else if ( a == "JPY" ){
+        var b = $(".JPY").attr("srcset");
+        $(".product-motivator__country-text").text("JPY");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+b+'">')
+      }
+
+    $(document).on('click', '.js-currency-button', function(e){
+      var a = $(this).attr("data-value");
+      if( a == "USD" ){
+        var b = $(".js-currency-button[data-value=USD]").text();  
+        var c = $(".js-currency-button[data-value=USD]").find("img").attr("srcset");
+        $(".product-motivator__country-text").text("USD");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+c+'">')
+      } else if ( a == "CAD" ){
+        var b = $(".js-currency-button[data-value=CAD]").text();  
+        var c = $(".js-currency-button[data-value=CAD]").find("img").attr("srcset");
+        $(".product-motivator__country-text").text("CAD");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+c+'">')
+      } else if ( a == "INR" ){
+        var b = $(".js-currency-button[data-value=INR]").text();  
+        var c = $(".js-currency-button[data-value=INR]").find("img").attr("srcset");
+        $(".product-motivator__country-text").text("INR");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+c+'">')
+      } else if ( a == "GBP" ){
+        var b = $(".js-currency-button[data-value=GBP]").text();  
+        var c = $(".js-currency-button[data-value=GBP]").find("img").attr("srcset");
+        $(".product-motivator__country-text").text("GBP");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+c+'">')
+      } else if ( a == "AUD" ){
+        var b = $(".js-currency-button[data-value=AUD]").text();  
+        var c = $(".js-currency-button[data-value=AUD]").find("img").attr("srcset");
+        $(".product-motivator__country-text").text("AUD");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+c+'">')
+      } else if ( a == "EUR" ){
+        var b = $(".js-currency-button[data-value=EUR]").text();  
+        var c = $(".js-currency-button[data-value=EUR]").find("img").attr("srcset");
+        $(".product-motivator__country-text").text("EUR");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+c+'">')
+      } else if ( a == "JPY" ){
+        var b = $(".js-currency-button[data-value=JPY]").text();  
+        var c = $(".js-currency-button[data-value=JPY]").find("img").attr("srcset");
+        $(".product-motivator__country-text").text("JPY");
+        $(".product-motivator__country-flag").html('<img class="image-currency" src="'+c+'">')
+      }
+    });
+  });
 </script>

@@ -75,7 +75,8 @@
             <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}" aria-hidden="true">{{ 'products.product.on_sale' | t }}</span>
           {%- endif -%}
         </div>
-      </div>
+
+          </div>
     </div>
 
     <div class="card-information">
@@ -95,7 +96,75 @@
         <span class="caption-large light">{{ block.settings.description | escape }}</span>
 
         {% render 'price', product: product_card_product, price_class: '' %}
+        
+        <span class="shopify-product-reviews-badge" data-id="{{ product_card_product.id }}"></span>
       </div>
     </div>
   </a>
+ {% if template == 'collection' or template == 'collection-list' %}
+      <div class="product-control">
+          {%  if product_card_product.options_with_values.size == 1 %}
+                    <form method="post" action="/cart/add">
+                    <input type="hidden" name="id" value="{{ product_card_product.variants.first.id }}" />
+                    <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
+                      <a href="#quik-view">Quick Buy</a>
+                      <input type="submit" value="Add to cart" class="btn" />
+                  </form>
+          {% else %}
+             <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product_card_product.variants.first.id }}" />
+            <input min="1" type="hidden" id="quantity" name="quantity" value="1"/>
+              <a href="" class="select_options">Select Options</a>
+             <div class="show_add_cart">
+                <variant-selects class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+              {%- for option in product_card_product.options_with_values -%}
+                  <div class="product-form__input product-form__input--dropdown">
+                  <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                      {{ option.name }}
+                  </label>
+                  <div class="select">
+                      <select id="Option-{{ section.id }}-{{ forloop.index0 }}"
+                      class="select__select"
+                      name="options[{{ option.name | escape }}]"
+                      form="product-form-{{ section.id }}"
+                      >
+                      {%- for value in option.values -%}
+                          <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
+                          {{ value }}
+                          </option>
+                      {%- endfor -%}
+                      </select>
+                      {% render 'icon-caret' %}
+                  </div>
+                  </div>
+              {%- endfor -%}
+
+              <script type="application/json">
+                  {{ product.variants | json }}
+              </script>
+              </variant-selects>
+              <input type="submit" value="Add to cart" class="btn" />
+            </div>
+          </form>
+          {% endif %}
+      </div>
+
+    {% endif %}
+ <button type="button" aria-label="Add to wishlist" class="" button-wishlist data-product-handle="{{ product_card_product.handle }}">
+<style scoped>
+.icon {
+  fill: transparent;
+  stroke: #000000;
+  transition: fill 0.3s ease;
+}
+.active .icon {
+  fill: red;
+  stroke: #000000;
+}
+</style>
+<svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.0026 13.2333L7.03594 12.3533C3.6026 9.24 1.33594 7.18667 1.33594 4.66667C1.33594 2.61333 2.94927 1 5.0026 1C6.1626 1 7.27594 1.54 8.0026 2.39333C8.72927 1.54 9.8426 1 11.0026 1C13.0559 1 14.6693 2.61333 14.6693 4.66667C14.6693 7.18667 12.4026 9.24 8.96927 12.36L8.0026 13.2333Z" stroke="#969696"/>
+</svg>
+
+</button>
 </div>

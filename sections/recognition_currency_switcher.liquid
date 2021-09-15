@@ -1,12 +1,19 @@
 {{ 'recognition_currencies.css' | asset_url | stylesheet_tag }}
 <div class="recognition_currency">
-    <div class="recogniti_currency_oncontent">
+    <div class="recogniti_currency_oncontent page-width">
         {% if settings.show_recognition %}
             {% include 'recognition_freeshipping' %}
         {% endif %}
         {% if settings.show_currency_switch %}
             <div class="currency">
                 {% include 'currencies-switch' %}
+                <div class="top-menu">
+                    <ul class="menu-nav-top">
+                        {% for link in linklists.top-menu.links %}
+                          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         {% endif %}
     </div>

@@ -30,10 +30,21 @@
                             {% assign content_position = "left" %}
                         {% endif %}
                         <li class="product-focus-list-item list-item-{{ content_position }}">
-                            <ion-icon class="product-focus-list-item-icon" name="{{ block.settings.icon_name }}"></ion-icon>
-                            <h4 class="product-focus-list-item-title">{{ block.settings.heading }}</h4>
-                            <div class="product-focus-list-item-text">{{ block.settings.feature_content }}</div>
+                          {% if block.settings.image_icon %}
+                          	<div class="image-icon"><img src="{{ block.settings.image_icon | img_url : "1920x" }}"></div>
+                          {% else %}
+                          	<ion-icon class="product-focus-list-item-icon" name="{{ block.settings.icon_name }}"></ion-icon>
+                          {% endif %}
+                          <h4 class="product-focus-list-item-title">{{ block.settings.heading }}</h4>
+                          <div class="product-focus-list-item-text">{{ block.settings.feature_content }}</div>
                         </li>
+                        {% if forloop.index == 2 %}
+                        <li class="product-focus-list-item product-focus-list-item-mobile">
+                          <img srcset="{{ section.settings.show_product.featured_media | img_url: '789x'}}" 
+                               src="{{ section.settings.show_product.featured_media | img_url: '789x'}}"
+                               alt="{{ section.settings.show_product.title }}">
+                        </li>
+                  		{% endif %}
                     {%- endfor -%}
                 </ul>
             </div>
@@ -62,6 +73,11 @@
                     "id": "feature_content",
                     "label": "Text",
                     "default": "<p>Let your customers know what details set your product apart from the competition.</p>"
+                },
+                {
+                  "type": "image_picker",
+                  "id": "image_icon",
+                  "label": "Image Icon"
                 },
                 {
                     "type": "text",

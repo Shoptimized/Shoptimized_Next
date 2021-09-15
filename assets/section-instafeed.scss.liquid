@@ -1,0 +1,121 @@
+#shopify-section-template--14800468672700__1630582022020ee660{
+  @media(max-width:480px){
+	margin-top: 100px;
+  }
+}
+.instagram-section{
+  display: flex;
+  @media(max-width:1023px){
+    flex-wrap: wrap;
+  }
+  .main-iamge{
+  	width: 25%;
+    padding: 0 10px;
+    position: relative;
+  
+    @media(max-width:1023px){
+      width: 100%;
+      margin-bottom:20px;
+    }
+    .first-image{
+      position: relative;
+      &:before{
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 18.1%, rgba(0, 0, 0, 0.65) 91.39%);
+        height: 100%;
+      }
+      img{
+      	width: 100%;
+        display: block;
+        max-height: 280px;
+        object-fit: cover;
+        @media(max-width:1366px){
+          max-height: 262px;
+        }
+        @media(max-width:1024px){
+          max-height: 221px;
+        }
+        @media(max-width:1023px){
+          max-height: 100%;
+        }
+      }
+      .caption-ins{
+        position: absolute;
+        bottom: 10px;
+        padding: 0 20px;
+        z-index: 2;
+        h3{
+          font-family: DM Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 27px;
+          letter-spacing: -0.02em;
+          color: #FFFFFF;
+          margin-bottom: 5px;
+        }
+        .tag{
+          font-family: DM Sans;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 27px;
+          letter-spacing: -0.025em;
+          color: #FFFFFF;
+          margin-bottom: 5px;
+        }
+        .cap{
+          font-family: DM Sans;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 18px;
+          letter-spacing: -0.7px;
+          color: #FFFFFF;
+          margin: 0;
+        }
+      }
+    }
+  }
+  #instafeed{
+    width: 75%;
+    @media(max-width:1023px){
+      width: 100%
+    }
+    .slick-arrow{
+      background: #FFFFFF;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+      border-radius: 5px;
+      height: 34px;
+      width: 34px;
+      z-index: 2;
+      &.slick-next{
+        right: 8px;
+      }
+      @media(max-width:1023px){
+        &.slick-prev{
+          left: 8px;
+        }
+      }
+      &:before{
+      	display: none;
+      }
+      
+    }
+    .items {
+      width: 25%;
+      display: inline-block;
+      padding: 0px 10px;
+      img{
+      	width: 100%;
+      }
+    }
+  }
+}

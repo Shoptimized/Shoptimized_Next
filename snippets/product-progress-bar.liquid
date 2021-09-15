@@ -53,14 +53,15 @@
     data-left-count="{{ inventory_quantity }}"
     data-total-count="{{ total_quantity }}">
     <p class="product-scarcity-header">{{ settings.product_scarcity_header }}</p>
+    <div class="product-scarcity-bar__text">
+        {{ real_progress_markup }}
+    </div>
     <div class="product-progress-bar">
         <div class="product-progress-bar__completed js-scarcity-bar"
              data-style="{{ scarcity_bar_style }}">
         </div>
     </div>
-    <div class="product-scarcity-bar__text">
-        {{ real_progress_markup }}
-    </div>
+
 </div>
 
 <script>

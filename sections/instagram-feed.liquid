@@ -1,0 +1,94 @@
+{{ 'section-instafeed.scss.css' | asset_url | stylesheet_tag }}
+<div class="instagram-section page-width">
+  <div class="main-iamge">
+    <div class="first-image">
+      <img src="{{ section.settings.image_url | img_url: '290x' }}">
+      <div class="caption-ins">
+        <h3>Want to Win Cool Prizes?</h3>
+        <p class="tag">#HASHTAG</p>
+        <p class="cap">Take a selfie with our product and email it to happytohelp@yourdomain.com to win!</p>
+      </div>
+    </div>
+  </div>
+  <div id="instafeed"></div>
+</div>
+<script src="{{ 'instafeed.min.js' | asset_url }}"></script>
+
+<script type="text/javascript">
+    var feed = new Instafeed({
+      accessToken: '{{section.settings.instagram_access_token}}',
+      template: '<div class="items"><a class="animation" href="\{\{link\}\}"><img src="\{\{image\}\}" /></a></div>',
+      limit: 5,
+      after: function () {
+      $('#instafeed').slick({
+      dots: false,
+      infinite: false,
+      arrows: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      prevArrow: "<button type='button' class='slick-prev slick-arrow'><svg width='9' height='16' viewBox='0 0 9 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 15L1 8L8 1' stroke='#636363' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+      nextArrow : "<button type='button' class='slick-next slick-arrow'><svg width='9' height='16' viewBox='0 0 9 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 15L8 8L1 1' stroke='#636363' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+    }
+    });
+    feed.run();
+</script>
+
+{% schema %}
+{
+  "name": "Instagram Feed",
+  "tag": "section",
+  "class": "spaced-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "instagram_access_token",
+      "label": "instagram_access_token"
+    },
+    {
+      "type": "text",
+      "id": "instagram_user_id",
+      "label": "instagram_user_id"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_url",
+      "label": "Main Image"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Instagram Feed"
+    }
+  ]
+}
+{% endschema %}
+

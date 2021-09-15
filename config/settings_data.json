@@ -1,18 +1,34 @@
 {
   "current": {
-    "recog_text": "Spend $x to Unlock Freddde Shipping to",
+    "recog_text": "Spend $x to Unlock Free Shipping to",
     "show_current_flag": true,
     "show_currency_switch": true,
-    "type_countdown_timer": "2",
+    "type_countdown_timer": "1",
+    "countdown_header_text": "Hurry, Offer Ends in:",
     "countdown_1_round_color": "#004eff",
     "countdown_1_text_color": "#de4848",
-    "top_reasons_1_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_2_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_3_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_4_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_5_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_6_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_7_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
+    "product_scarcity_header": "",
+    "product_scarcity_text": "XX LEFT IN STOCK",
+    "top_reasons_1_image": "shopify:\/\/shop_images\/image_2021_09_04T08_53_35_915Z.png",
+    "top_reasons_2_image": "shopify:\/\/shop_images\/image_2021_09_04T08_53_50_636Z.png",
+    "top_reasons_3_image": "shopify:\/\/shop_images\/image_2021_09_04T08_54_03_112Z.png",
+    "top_reasons_4_image": "shopify:\/\/shop_images\/image_2021_09_04T08_54_11_604Z.png",
+    "top_reasons_5_image": "shopify:\/\/shop_images\/image_2021_09_04T08_54_21_487Z.png",
+    "top_reasons_6_image": "shopify:\/\/shop_images\/image_2021_09_04T08_54_29_948Z.png",
+    "top_reasons_7_image": "shopify:\/\/shop_images\/image_2021_09_04T08_54_44_147Z.png",
+    "colors_solid_button_labels": "#1a1a1a",
+    "colors_accent_1": "#3167eb",
+    "colors_accent_2": "#2c3e50",
+    "colors_text": "#000000",
+    "colors_outline_button_labels": "#3167eb",
+    "accent_icons": "accent-1",
+    "social_twitter_link": "#",
+    "social_facebook_link": "#",
+    "social_pinterest_link": "#",
+    "social_instagram_link": "#",
+    "social_tiktok_link": "#",
+    "social_youtube_link": "#",
+    "social_vimeo_link": "#",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -29,39 +45,65 @@
         "block_order": [
           "announcement-bar-0"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "header": {
         "type": "header",
         "settings": {
           "enable_megamenu": false,
-          "logo_width": 100,
-          "logo_position": "middle-left",
+          "logo": "shopify:\/\/shop_images\/Shoptimized_Logo_3.png",
+          "logo_width": 200,
+          "logo_position": "top-left",
           "menu": "main-menu",
-          "show_line_separator": true,
+          "show_line_separator": false,
           "enable_sticky_header": true
         }
       },
       "footer": {
         "type": "footer",
         "blocks": {
+          "d4dc085f-159a-4fa1-a435-cb03dad1832a": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Group.png",
+              "image_width": 200,
+              "alignment": "",
+              "text": "<p>Shoptimized has 30+ Conversion Boosting features built in, loads lightning-fast and saves you up to $2,011 a year on app subscriptions you’ll no longer need.<\/p>"
+            }
+          },
           "footer-0": {
             "type": "link_list",
             "settings": {
               "heading": "Quick links",
               "menu": "footer"
             }
+          },
+          "702e6521-1763-436a-bab2-592ef5c30839": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "d8868585-6198-4ac6-a9e7-5b92ddc5de93": {
+            "type": "text",
+            "settings": {
+              "heading": "Stay In The Loop",
+              "subtext": "<p>Become a Shoptimized™ Insider and get 10% off your order today. Plus we'll keep you up-to-date with the latest theme news.<\/p>"
+            }
           }
         },
         "block_order": [
-          "footer-0"
+          "d4dc085f-159a-4fa1-a435-cb03dad1832a",
+          "footer-0",
+          "702e6521-1763-436a-bab2-592ef5c30839",
+          "d8868585-6198-4ac6-a9e7-5b92ddc5de93"
         ],
         "settings": {
-          "color_scheme": "background-1",
+          "color_scheme": "accent-2",
           "newsletter_enable": true,
-          "newsletter_heading": "Sign up to our emails",
-          "show_social": false,
+          "newsletter_heading": "",
+          "show_social": true,
           "enable_country_selector": true,
           "enable_language_selector": true,
           "payment_enable": true
@@ -69,12 +111,61 @@
       },
       "recognition_currency_switcher": {
         "type": "recognition_currency_switcher",
+        "settings": {}
+      },
+      "main-product": {
+        "type": "main-product",
+        "blocks": {
+          "df6c96e9-acd4-4c2b-862f-99d5738bc1f1": {
+            "type": "text",
+            "settings": {
+              "text": "Text block",
+              "text_style": "body"
+            }
+          },
+          "e919187a-7bae-40e3-a2f0-7698e6d9188e": {
+            "type": "title",
+            "settings": {}
+          },
+          "e6f19efe-e1b0-4ef5-a869-b09aeddc1e33": {
+            "type": "text",
+            "settings": {
+              "text": "Text block",
+              "text_style": "body"
+            }
+          },
+          "357cfdf6-928b-450a-a835-753db356af94": {
+            "type": "variant_picker",
+            "settings": {
+              "picker_type": "dropdown"
+            }
+          },
+          "3d921e38-203d-4f2e-ab5e-695ba981469f": {
+            "type": "description",
+            "settings": {}
+          },
+          "e595aeaa-962c-499c-92cf-b44c2a93c165": {
+            "type": "buy_buttons",
+            "settings": {
+              "show_dynamic_checkout": true,
+              "payment_icons_checkbox": true
+            }
+          }
+        },
+        "block_order": [
+          "df6c96e9-acd4-4c2b-862f-99d5738bc1f1",
+          "e919187a-7bae-40e3-a2f0-7698e6d9188e",
+          "e6f19efe-e1b0-4ef5-a869-b09aeddc1e33",
+          "357cfdf6-928b-450a-a835-753db356af94",
+          "3d921e38-203d-4f2e-ab5e-695ba981469f",
+          "e595aeaa-962c-499c-92cf-b44c2a93c165"
+        ],
         "settings": {
+          "enable_sticky_info": true,
+          "enable_video_looping": true
         }
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   }
 }

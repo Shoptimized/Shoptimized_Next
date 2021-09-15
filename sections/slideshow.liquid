@@ -1,0 +1,134 @@
+<link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+{{ 'component-slideshow.scss.css' | asset_url | stylesheet_tag }}
+{%- for block in section.blocks -%}
+<style>
+  .item-{{ block.id }} .image-Mobile{
+  	display: none;
+  }
+  @media (max-width:480px){
+    .item-{{ block.id }} .image-Mobile{
+      display: block;
+    }
+    {% if block.settings.image_Mobile != blank %}
+    .item-{{ block.id }} .image-Desktop{
+      display: none;
+    }
+    {% endif %} 
+  }
+</style>
+{% endfor %}
+<div class="main-Section">
+  <div class="content-Section">
+    {%- for block in section.blocks -%}
+    <div class="item_Main item-{{ block.id }}">
+      <div class="item_Content">
+        <div class="div-Image">
+          {% if block.settings.image_Desktop != blank %}
+          <img class="image-Desktop" src="{{ block.settings.image_Desktop | img_url: "1920x" }}">
+          {% endif %}
+          {% if block.settings.image_Mobile != blank %}
+          <img class="image-Mobile" src="{{ block.settings.image_Mobile | img_url: "1920x" }}">
+          {% endif %}          
+        </div>
+        <div class="div-Text">
+          <div class="page-width">
+            {% if block.settings.heading != blank %}<h3>{{ block.settings.heading }}</h3> {% endif %}
+            {% if block.settings.subheading != blank %}
+            <div class="rte">{{ block.settings.subheading }}</div>
+            {% endif %}
+            {% if block.settings.button_label != blank %}
+            <a class="button-Slide" href="{{ block.settings.button_link }}">{{ block.settings.button_label }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.content-Section').slick({
+      infinite: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+      prevArrow: "<button type='button' class='slick-prev slick-arrow'><svg width='9' height='16' viewBox='0 0 9 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M8 15L1 8L8 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+      nextArrow : "<button type='button' class='slick-next slick-arrow'><svg width='9' height='16' viewBox='0 0 9 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 1L8 8L1 15' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg></button>",
+      responsive: [
+        {
+          breakpoint: 500,
+          settings: {
+            arrows: false,
+            autoplay: true,
+            infinite: true
+          }
+        }
+      ]
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Slideshow",
+	"class": "section-slideshow",
+    "settings": [
+	],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "Slide",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image_Desktop",
+            "label": "Image Desktop"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_Mobile",
+            "label": "Image Mobile"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+			"label": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "subheading",
+            "label": "Sub Heading"
+          },
+		  {
+            "type": "text",
+            "id": "button_label",
+			"label": "Button Label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "Button Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Slideshow"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

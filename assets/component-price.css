@@ -2,13 +2,47 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+  
   flex-wrap: wrap;
   font-size: 1.6rem;
   letter-spacing: 0.1rem;
   line-height: 1.5;
   color: rgb(var(--color-foreground));
 }
-
+.price .price__badge-sale{
+  border: 1px solid #3167EB;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background: transparent;
+  color: #3167EB;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 20px;
+  padding: 0 10px;
+}
+.price .price-item--regular{
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1;
+  color: #1D1F1E;
+  display: inline-block;
+}
+.price .price-item--sale{
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-block;
+  
+  color: #DADADA;
+  text-decoration: line-through;
+}
 .price.price--unavailable {
   visibility: hidden;
 }
@@ -80,10 +114,6 @@
   justify-content: center;
 }
 
-.price--on-sale .price-item--regular {
-  text-decoration: line-through;
-  color: rgba(var(--color-foreground), 0.75);
-}
 
 .unit-price {
   font-size: 1.1rem;

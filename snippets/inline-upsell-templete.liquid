@@ -1,0 +1,83 @@
+{{ 'inline-upsell.css' | asset_url | stylesheet_tag }}
+<div class="inline-upsell max-width">
+    <h2 class="inline-upsell__heading">{{heading | default: 'People often buy'}}</h2>
+    {% unless subheading == blank %}<span class="">{{subheading}}</span>{% endunless %}
+    {% assign totalPrice = 0 %}
+    {% assign totalDiscount = 0 %}
+    {% assign pastFirst = false %}
+    <div class="inline-upsell__products">
+        {% if p1.id != product.id and p1 != blank %}
+            {% if product.available %}
+                {% assign currVar = product.selected_or_first_available_variant %}
+                {% assign totalPrice = totalPrice | plus: currVar.price %}
+                {% if currVar.compare_at_price > 0 %}
+                    {% assign totalDiscount = totalDiscount | plus: currVar.compare_at_price %}
+                {% else %}
+                    {% assign totalDiscount = totalDiscount | plus: currVar.price %}
+                {% endif %}
+            {% endif %}
+            <div class="inline-upsell__plus">+</div>
+            <input onchange="" {% if product.available %}checked{% else %}disabled{% endif %} data-for="p4-{{product.id}}" class="hide inline-upsell__toggle" type="checkbox" id="p4">
+            <label for="p4" class="inline-upsell__product">
+                {% render 'product-card-upsell', 
+                    product_card_product: product,
+                    media_size: 'adapt',
+                    show_secondary_image: true,
+                    add_image_padding: false,
+                    show_vendor: false
+                %}
+                {% unless product.variants.size == 1 or product.has_only_default_variant %}
+                    <select onchange="" class="variants_select" data-upsell-id="{{product.id}}" id="p4-{{product.id}}">
+                        {% for variant in product.variants %}
+                            {% if variant.available %}
+                                <option {% if variant.id == product.selected_or_first_available_variant.id %}selected{% endif %} data-price="{{variant.price}}" data-compare-price="{{variant.compare_at_price | default: 0}}" value="{{variant.id}}">{{variant.title}}</option>
+                            {% else %}
+                                <option disabled>{{variant.title}} - {{'general.buttons.sold_out' | t}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                {% else %}
+                    <input data-price="{{product.price}}" data-compare-price="{{product.compare_at_price | default: 0}}" type="hidden" value="{{product.variants[0].id}}" id="p4-{{product.id}}">
+                {% endunless %}
+            </label>
+        {% endif %}
+        {% if product.available %}
+            {% assign currVar = product.selected_or_first_available_variant %}
+            {% assign totalPrice = totalPrice | plus: currVar.price %}
+            {% if currVar.compare_at_price > 0 %}
+                {% assign totalDiscount = totalDiscount | plus: currVar.compare_at_price %}
+            {% else %}
+                {% assign totalDiscount = totalDiscount | plus: currVar.price %}
+            {% endif %}
+        {% endif %}
+        <div class="inline-upsell__plus">+</div>
+        <input onchange="" {% if product.available %}checked{% else %}disabled{% endif %} data-for="p4-{{product.id}}" class="hide inline-upsell__toggle" type="checkbox" id="p4">
+        <label for="p4" class="inline-upsell__product">
+            {% render 'product-card-upsell', 
+                product_card_product: product,
+                media_size: 'adapt',
+                show_secondary_image: true,
+                add_image_padding: false,
+                show_vendor: false
+             %}
+            {% unless product.variants.size == 1 or product.has_only_default_variant %}
+                <select onchange="" class="variants_select" data-upsell-id="{{product.id}}" id="p4-{{product.id}}">
+                    {% for variant in product.variants %}
+                        {% if variant.available %}
+                            <option {% if variant.id == product.selected_or_first_available_variant.id %}selected{% endif %} data-price="{{variant.price}}" data-compare-price="{{variant.compare_at_price | default: 0}}" value="{{variant.id}}">{{variant.title}}</option>
+                        {% else %}
+                            <option disabled>{{variant.title}} - {{'general.buttons.sold_out' | t}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            {% else %}
+                <input data-price="{{product.price}}" data-compare-price="{{product.compare_at_price | default: 0}}" type="hidden" value="{{product.variants[0].id}}" id="p4-{{product.id}}">
+            {% endunless %}
+        </label>
+    </div>
+     <div class="col-12 col-md unflex inline-upsell__atc">
+        <div class="inline-upsell__price">Total price: <span id="inline-upsell__total">{{totalPrice | money | strip_html}}</span><span id="inline-upsell__discount">{% if totalDiscount > totalPrice %}{{totalDiscount | money | strip_html}}{% endif %}</span></div>
+        Add Cart
+    </div>
+</div>
+{{ 'inline-upsell.js' | asset_url | script_tag }}

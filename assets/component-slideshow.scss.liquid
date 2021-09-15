@@ -1,0 +1,93 @@
+.section-slideshow{
+  .main-Section{
+    .content-Section{
+      .slick-arrow{
+        background: rgba(225, 225, 225, 0.19);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+        border-radius: 5px;
+        height: 34px;
+        width: 34px;
+        z-index: 2;
+        &:hover{
+          background: rgba(225, 225, 225, 0.19);
+        }
+        &:before{
+          display: none;
+        }
+        &.slick-disabled{
+          opacity: 0.5;
+        }
+        &.slick-prev{
+          left: 20px;
+        }
+        &.slick-next{
+          right: 20px;
+        }
+      }
+      .item_Main{
+        .item_Content{
+          position: relative;
+          .div-Image{
+            img{
+              width: 100%
+            }
+          }
+          .div-Text{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            width: 100%;
+            @media(max-width:1024px){
+              padding: 0 50px;
+            }
+            h3{
+              font-family: DM Sans;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 36px;
+              line-height: 47px;
+              letter-spacing: -0.01em;
+              color: #FFFFFF;
+              margin-top: 0;
+              margin-bottom: 25px;
+              @media(max-width:480px){
+                text-align: center;
+                font-size: 20px;
+                line-height: 26px;
+                margin-bottom: 20px;
+              }
+            }
+            .button-Slide{
+              font-family: DM Sans;
+              font-style: normal;
+              font-weight: normal;
+              font-size: 20px;
+              line-height: 26px;
+              color: rgba(255, 255, 255, 0.6);
+              display: inline-block;
+              padding-bottom: 7px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+              text-decoration: none !important;
+              @media(max-width:480px){
+                background: #3167EB;
+                border-radius: 5px;
+                display: block;
+                max-width: 136px;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 16px;
+                padding: 18px;
+                letter-spacing: -0.02em;
+                box-shadow: none;
+                border: 0px;
+                color: #FFFFFF;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

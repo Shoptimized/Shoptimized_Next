@@ -7,8 +7,8 @@
   min-width: 100%;
   width: 20rem;
   border: 1px solid rgba(var(--color-foreground), 0.2);
-  background-color: rgb(var(--color-background));
-}
+    background-color: rgb(var(--color-background));
+      }
 
 .list-menu--disclosure:focus {
   outline: none;
@@ -24,4 +24,185 @@
   overflow: auto;
   width: 10rem;
   padding: 0.5rem;
+}
+.header-logo .header__icons {
+  display: inline-block;
+  justify-self: end;
+  text-align: right;
+}
+.header__icon span, .header__icon:not(.header__icon--summary) {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+/*customs menu*/
+header.header.header--top-left.full-width.header--has-menu {
+  display: block;
+}
+.main-menu{
+  background: #2C3E50;
+}
+ul.menu-nav-top li {
+  display: inline-block;
+}
+
+.currency {
+  display: flex;
+  justify-content: flex-end;
+}
+div#shopify-section-recognition_currency_switcher {
+  background: rgba(49, 103, 235, 0.06);
+}
+ul.list-menu.list-menu--inline a {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  align-items: center;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+ul.menu-nav-top li a {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  align-items: center;
+  letter-spacing: inherit;
+  color: #363636;
+  text-transform: capitalize;
+  margin: 0px 10px;
+}
+.header-logo .grid__item {
+  padding-bottom: 0px;
+}
+.recognition {
+  font-size: 12px;
+  color: #363636;
+}
+ul.menu-nav-top {
+  margin-bottom: 0px;
+  padding-left: 10px;
+}
+a.header__heading-link.link.link--text.focus-inset {
+  padding: 0px;
+}
+.grid__item.header__icons a {
+  margin: 0px 5px;
+}
+form.search.search-modal__form input#Search-In-Modal {
+  height: 3.8rem;
+  line-height: 5.4;
+  padding: 5px;
+  box-shadow: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  outline: none;
+}
+form.search.search-modal__form label.field__label {
+  top: 0.9rem;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #363636;
+  opacity: 1;
+}
+input#Search-In-Modal:focus + label, input#Search-In-Modal:not(:placeholder-shown) + label{
+  opacity: 0;
+}
+form.search.search-modal__form button.search__button.field__button.focus-inset {
+  background: #3167EB;
+  border-radius: 0px 5px 5px 0px;
+  height: 3.8rem;
+  color: #fff;
+}
+.header__icon, .header__icon--cart .icon {
+  height: auto; 
+}
+ul.right-menu-info-contact {
+    display: inline-block;
+    justify-self: end;
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+nav.header__inline-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul.right-menu-info-contact li {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 3;
+  position: relative;
+}
+ul.right-menu-info-contact li .dropdown{
+  position: absolute;
+  width: 214px;
+  right: -50px;
+  opacity: 0;
+  visibility: hidden;
+}
+ul.right-menu-info-contact li:hover .dropdown{
+  opacity: 1;
+  visibility: visible;
+  transition: 0.6s;
+}
+ul.right-menu-info-contact li .dropdown .dropdown-content{
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 15px;
+  position: relative;
+}
+ul.right-menu-info-contact li .dropdown .dropdown-content:before{  
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 11px solid #fff;
+  position: absolute;
+  top: -10px;
+  right: 63px;
+}
+ul.right-menu-info-contact li .dropdown p{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+ul.right-menu-info-contact li .dropdown p a {
+  padding: 0;
+  text-align: left;
+  letter-spacing: -0.5px;
+  color: #595959;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+}
+ul.right-menu-info-contact li .dropdown p small{
+  letter-spacing: -0.2px;
+  color: #595959;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+}
+ul.right-menu-info-contact li a {
+    padding: 1.2rem;
 }

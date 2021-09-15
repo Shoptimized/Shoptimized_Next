@@ -12,8 +12,7 @@
         },
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "subtitle": {
           "type": "text",
@@ -24,7 +23,17 @@
         },
         "price": {
           "type": "price",
+          "settings": {}
+        },
+        "7e866a82-f4d7-4a9f-aef6-8ececfe2347b": {
+          "type": "people-view",
+          "settings": {}
+        },
+        "16828124-f74b-42a8-b4a1-86f311209803": {
+          "type": "popup",
           "settings": {
+            "link_label": "Size Chart",
+            "page": ""
           }
         },
         "variant_picker": {
@@ -33,15 +42,13 @@
             "picker_type": "button"
           }
         },
-        "countdown-timer": {
-          "type": "countdown-timer",
-          "settings": {
-          }
+        "remaining-stock": {
+          "type": "remaining-stock",
+          "settings": {}
         },
         "quantity_selector": {
           "type": "quantity_selector",
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -50,25 +57,21 @@
             "payment_icons_checkbox": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
-        },
         "share": {
           "type": "share",
-          "settings": {
-          }
-        },
-        "remaining-stock": {
-          "type": "remaining-stock",
-          "settings": {
-          }
+          "settings": {}
         },
         "proposition-icons": {
           "type": "proposition-icons",
-          "settings": {
-          }
+          "settings": {}
+        },
+        "bf4ec021-661e-4d45-bcf6-3256e3104906": {
+          "type": "delivery",
+          "settings": {}
+        },
+        "37e122f7-9c32-4f6e-a617-89a5f7ec2213": {
+          "type": "countdown-timer",
+          "settings": {}
         }
       },
       "block_order": [
@@ -76,14 +79,16 @@
         "title",
         "subtitle",
         "price",
+        "7e866a82-f4d7-4a9f-aef6-8ececfe2347b",
+        "16828124-f74b-42a8-b4a1-86f311209803",
         "variant_picker",
-        "countdown-timer",
+        "remaining-stock",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "share",
-        "remaining-stock",
-        "proposition-icons"
+        "proposition-icons",
+        "bf4ec021-661e-4d45-bcf6-3256e3104906",
+        "37e122f7-9c32-4f6e-a617-89a5f7ec2213"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -99,10 +104,101 @@
         "add_image_padding": false,
         "show_vendor": false
       }
+    },
+    "inline-upsell": {
+      "type": "inline-upsell",
+      "blocks": {
+        "eec1f1d1-be00-49de-bfda-5428735fbbab": {
+          "type": "productSpecific",
+          "settings": {
+            "handle": "white-shirt",
+            "upsellProduct1": "",
+            "upsellProduct2": "",
+            "upsellProduct3": "",
+            "heading": "",
+            "subheading": ""
+          }
+        },
+        "557b50c4-8de2-43e2-972a-f9b3ba0ef930": {
+          "type": "collectionSpecific",
+          "settings": {
+            "handle": "frontpage",
+            "upsellProduct1": "all",
+            "upsellProduct2": "black-shirt",
+            "upsellProduct3": "",
+            "heading": "",
+            "subheading": ""
+          }
+        }
+      },
+      "block_order": [
+        "eec1f1d1-be00-49de-bfda-5428735fbbab",
+        "557b50c4-8de2-43e2-972a-f9b3ba0ef930"
+      ],
+      "settings": {}
+    },
+    "1631516597fe533b17": {
+      "type": "section-info-badges",
+      "blocks": {
+        "1631516597fe533b17-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_2.png",
+            "title": "Warranty",
+            "text": "<p>We back all<br\/>Shoptimized™ products with a 1 year guarantee<\/p>",
+            "text_url": "#"
+          }
+        },
+        "1631516597fe533b17-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/money-recive.png",
+            "title": "We will beat any price",
+            "text": "<p>Found one of our products cheper elswhere? We will beat the price<\/p>",
+            "text_url": "#"
+          }
+        },
+        "1631516597fe533b17-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_3.png",
+            "title": "Free Shipping",
+            "text": "<p>Enjoy free shipping when your order exceeds $75<\/p>",
+            "text_url": "#"
+          }
+        },
+        "b4477a06-ecb8-4976-83f3-7ae0b665decc": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Group_4.png",
+            "title": "Ships Next Day",
+            "text": "<p>All orders are dispatched the next business day<\/p>",
+            "text_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "1631516597fe533b17-0",
+        "1631516597fe533b17-1",
+        "1631516597fe533b17-2",
+        "b4477a06-ecb8-4976-83f3-7ae0b665decc"
+      ],
+      "settings": {
+        "title": "",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false
+      }
     }
   },
   "order": [
     "main",
-    "product-recommendations"
+    "product-recommendations",
+    "inline-upsell",
+    "1631516597fe533b17"
   ]
 }

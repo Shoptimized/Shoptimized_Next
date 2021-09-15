@@ -1,0 +1,57 @@
+<ul class="shopify-tabs">
+  <li class="current" data-tab="tab-description">Product Description</li>
+  <li data-tab="tab-review">Reviews</li>
+  <li data-tab="tab-shipping">Shipping & Returns</li>
+</ul>
+<div id="tab-description" class="shopify-tab-content current">
+  {%- if product.description != blank -%}
+	<div class="product__description rte">
+	    {{ product.description }}
+	</div>
+  {%- endif -%}
+</div>
+<div id="tab-review" class="shopify-tab-content">
+   <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
+</div>
+<div id="tab-delivery" class="shopify-tab-content">
+  Delivery tab shipping
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('ul.shopify-tabs > li').click(function(){
+      var tab_id = $(this).attr('data-tab');
+
+      $(this).parent().find('li').removeClass('current');
+      $('.shopify-tab-content').removeClass('current');
+
+      $(this).addClass('current');
+      $("#"+tab_id).addClass('current');
+    })
+  })
+</script>
+<style type="text/css">
+	ul.shopify-tabs {
+	    margin: 0px;
+	    padding: 0px;
+	    list-style: none;
+	}
+	ul.shopify-tabs > li{
+	    background: none;
+	    color: #333;
+	    display: inline-block;
+	    padding: 10px 15px;
+	    cursor: pointer;
+	}
+	ul.shopify-tabs > li.current{
+	    background: #f0f0f0;
+	    color: #333;
+	}
+	.shopify-tab-content{
+	    display: none;
+	    background: #f0f0f0;
+	    padding: 15px;
+	}
+	.shopify-tab-content.current{
+	    display: block;
+	}
+</style>

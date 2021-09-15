@@ -1,7 +1,7 @@
 .recogniti_currency_oncontent {
     display: flex;
     justify-content: space-between;
-    padding: 10px 50px;
+    padding: 10px 15px;
 }
 
 .currency {
@@ -12,7 +12,6 @@
 
 .currency-switcher .currency-contents{
     -webkit-tap-highlight-color: transparent;
-    background-color: #fff;
     box-sizing: border-box;
     text-align: left!important;
     transition: all .2s ease-in-out;
@@ -28,9 +27,6 @@
     font-size: 13px;
     vertical-align: middle;
     cursor: pointer;
-    
-    padding: 7px 27px 7px 10px;
-    box-shadow: 0 0 6px -1px rgb(0 0 0 / 10%);
     border-radius: 5px
 }
 

@@ -1,3 +1,107 @@
+#shopify-section-template--14800468672700__1630663001eda78272 .deferred-media {
+    padding-bottom: 50% !important; 
+}
+.collage-wrapper-title {
+  margin-top: 0;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39px;
+  text-align: center;
+  letter-spacing: -.02em;
+  color: #262626;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.collage-wrapper-title:after{
+  content: "";
+  width: 95px;
+  height: 4px;
+  background: #3167eb;
+  display: block;
+  margin-top: 5px;
+}
+.collage-wrapper-subtitle p{
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0;
+  color: #1D1F1E;
+  max-width: 536px;
+  margin: 0 auto;
+}
+.collage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: 60px;
+}
+.collage .collage-video{
+  width: 50%;
+  margin: 0;
+  border: 0;
+  margin-bottom: 40px;
+  max-height: 326px;
+}
+.collage .collage-video:before{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  margin: 0 20px;
+}
+.collage .collage-image{
+  width: 25%;
+  margin: 0;
+  border: 0;
+}
+.collage .collage-image .collage-card__image-wrapper .collage-card__image{
+	position: relative;
+}
+.collage .collage-image .collage-card__image-wrapper{
+	padding: 0 20px;
+}
+
+.collage--mobile {
+  grid-template-columns: repeat(2, 1fr);
+}
+.collage .collage-video h3{
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 31px;
+  letter-spacing: -0.02em;
+  color: #262626;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+.collage .collage-video .rte{
+  padding: 0 20px;
+}
+.collage .collage-video .rte p{
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+  /* identical to box height */
+  color: #1D1F1E;
+}
+
 .collage-section + .collage-section .no-heading {
   margin-top: -4rem;
 }
@@ -18,19 +122,6 @@
   .collage-wrapper.no-heading {
     margin-top: 6rem;
   }
-}
-
-.collage-wrapper-title {
-  margin-bottom: 3rem;
-}
-
-.collage {
-  display: grid;
-  gap: 1rem;
-}
-
-.collage--mobile {
-  grid-template-columns: repeat(2, 1fr);
 }
 
 @media screen and (min-width: 750px) {
@@ -55,7 +146,6 @@
 
 .collage-card {
   position: relative;
-  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
 .collage-card:only-child {
@@ -79,10 +169,7 @@
 }
 
 @media screen and (min-width: 750px) {
-  .collage-card--left:not(:only-child),
-  .collage-card--right:not(:only-child) {
-    min-height: 40rem;
-  }
+
 
   .collage-card--left:nth-last-child(3),
   .collage-card--right:nth-child(3) {
@@ -99,9 +186,6 @@
   }
 
   .collage-card:not(.collage-card--left, .collage-card--right) > * {
-    position: absolute;
-    width: 100%;
-    height: 100%;
   }
 }
 
@@ -117,8 +201,14 @@
 .collage-video.collage-card--left .collage-content,
 .collage-video.collage-card--right .collage-content {
   position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
 }
 
+.collage-video .collage-content .collage-card__image{
+	padding: 0 20px ;
+}
 .collage-video noscript .collage-content {
   width: 100%;
 }
@@ -482,4 +572,36 @@
   width: 100%;
   height: 100%;
   position: static;
+}
+@media screen and (max-width: 768px) {
+  #shopify-section-template--14800468672700__1630663001eda78272 .deferred-media {
+    height: 100% !important;
+    padding: 0px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .collage .collage-image .collage-card__image-wrapper,
+  .collage-video .collage-content .collage-card__image{
+    padding: 0 10px;
+  }
+  .collage .collage-video:before{
+  	margin: 0 10px;
+  }
+  #shopify-section-template--14800468672700__16304114744e06f9ca .collage .collage-video{
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .collage{
+    margin-top: 30px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .collage .collage-image{
+    width: 50%;
+  }
+  .collage--mobile .collage-card:not(.collage-card--left,.collage-card--right) .collage-card__image-wrapper {
+    padding-bottom: 20px;
+  }
 }
