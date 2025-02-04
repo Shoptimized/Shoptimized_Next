@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "recog_text": "Spend $x to Unlock Freddde Shipping to",
@@ -6,13 +15,13 @@
     "type_countdown_timer": "2",
     "countdown_1_round_color": "#004eff",
     "countdown_1_text_color": "#de4848",
-    "top_reasons_1_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_2_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_3_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_4_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_5_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_6_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
-    "top_reasons_7_image": "shopify:\/\/shop_images\/top_reasons_1_image.png",
+    "top_reasons_1_image": "shopify://shop_images/top_reasons_1_image.png",
+    "top_reasons_2_image": "shopify://shop_images/top_reasons_1_image.png",
+    "top_reasons_3_image": "shopify://shop_images/top_reasons_1_image.png",
+    "top_reasons_4_image": "shopify://shop_images/top_reasons_1_image.png",
+    "top_reasons_5_image": "shopify://shop_images/top_reasons_1_image.png",
+    "top_reasons_6_image": "shopify://shop_images/top_reasons_1_image.png",
+    "top_reasons_7_image": "shopify://shop_images/top_reasons_1_image.png",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -29,8 +38,7 @@
         "block_order": [
           "announcement-bar-0"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "header": {
         "type": "header",
@@ -38,7 +46,7 @@
           "enable_megamenu": false,
           "logo_width": 100,
           "logo_position": "middle-left",
-          "menu": "main-menu",
+          "menu": "customer-account-main-menu",
           "show_line_separator": true,
           "enable_sticky_header": true
         }
@@ -69,12 +77,9 @@
       },
       "recognition_currency_switcher": {
         "type": "recognition_currency_switcher",
-        "settings": {
-        }
+        "settings": {}
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   }
 }

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -13,7 +22,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -32,6 +41,37 @@
         "adapt_height_first_image": false
       }
     },
+    "alternating_content": {
+      "type": "alternating-content",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {
+            "background_style": "default",
+            "alternating_header": "Alternating content",
+            "alternating_content": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.</p>",
+            "alternating_button_text": "This is your call to action",
+            "alternating_button_link": ""
+          }
+        },
+        "video": {
+          "type": "video",
+          "settings": {
+            "background_style": "default",
+            "alternating_header": "Alternating content",
+            "alternating_content": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.</p>",
+            "alternating_button_text": "This is your call to action",
+            "alternating_button_link": "",
+            "video_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image",
+        "video"
+      ],
+      "settings": {}
+    },
     "featured_products": {
       "type": "featured-collection",
       "settings": {
@@ -46,38 +86,6 @@
         "show_vendor": false
       }
     },
-    "alternating_content": {
-      "type": "alternating-content",
-      "blocks": {
-        "image": {
-          "type": "image",
-          "settings": {
-            "background_style": "default",
-            "alternating_header": "Alternating content",
-            "alternating_content": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.<\/p>",
-            "alternating_button_text": "This is your call to action",
-            "alternating_button_link": ""
-          }
-        },
-        "video": {
-          "type": "video",
-          "settings": {
-            "background_style": "default",
-            "alternating_header": "Alternating content",
-            "alternating_content": "<p>Employ up to three alternating features with an option to use an image or video and include a call to action button.<\/p>",
-            "alternating_button_text": "This is your call to action",
-            "alternating_button_link": "",
-            "video_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "image",
-        "video"
-      ],
-      "settings": {
-      }
-    },
     "product_focus": {
       "type": "product-focus",
       "blocks": {
@@ -85,7 +93,7 @@
           "type": "feature",
           "settings": {
             "heading": "Feature",
-            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.</p>",
             "icon_name": "refresh"
           }
         },
@@ -93,7 +101,7 @@
           "type": "feature",
           "settings": {
             "heading": "Feature",
-            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.</p>",
             "icon_name": "refresh"
           }
         },
@@ -101,7 +109,7 @@
           "type": "feature",
           "settings": {
             "heading": "Feature",
-            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.</p>",
             "icon_name": "refresh"
           }
         }
@@ -126,21 +134,21 @@
           "type": "image-text",
           "settings": {
             "text_heading": "Images with text",
-            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>"
+            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.</p>"
           }
         },
         "e63b1fdc-7ecf-4f14-8ba4-ed98031a4133": {
           "type": "image-text",
           "settings": {
             "text_heading": "Images with text",
-            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>"
+            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.</p>"
           }
         },
         "a4f05ab1-f1e2-4ca9-ba1f-b550eee57f3f": {
           "type": "image-text",
           "settings": {
             "text_heading": "Images with text",
-            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.<\/p>"
+            "text_content": "<p>Say a bit about your brand, a specific product, or promotion.</p>"
           }
         }
       },
@@ -163,7 +171,7 @@
           "type": "feature",
           "settings": {
             "heading": "Feature",
-            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.</p>",
             "icon_name": "refresh"
           }
         },
@@ -171,7 +179,7 @@
           "type": "feature",
           "settings": {
             "heading": "Feature",
-            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.</p>",
             "icon_name": "refresh"
           }
         },
@@ -179,7 +187,7 @@
           "type": "feature",
           "settings": {
             "heading": "Feature",
-            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.</p>",
             "icon_name": "refresh"
           }
         },
@@ -187,7 +195,7 @@
           "type": "feature",
           "settings": {
             "heading": "Feature",
-            "feature_content": "<p>Let your customers know what details set your product apart from the competition.<\/p>",
+            "feature_content": "<p>Let your customers know what details set your product apart from the competition.</p>",
             "icon_name": "refresh"
           }
         }
@@ -209,8 +217,8 @@
   },
   "order": [
     "image_banner",
-    "featured_products",
     "alternating_content",
+    "featured_products",
     "product_focus",
     "16279298267c46d60b",
     "16279733061ed9a0b9"
