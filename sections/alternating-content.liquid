@@ -12,9 +12,9 @@
         {% endif %}
         {%- case block.type -%}
             {%- when 'image' -%}
-                {% include 'alternating-image', content_position = content_position %}
+                {% include 'alternating-image' %}
             {%- when 'video' -%}
-                {% include 'alternating-video', content_position = content_position %}
+                {% include 'alternating-video' %}
         {%- endcase -%}
     {%- endfor -%}
 </div>
@@ -155,4 +155,16 @@
        }
    ]
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'alternating-image', content_position = content_position %}"
+  to: "{% include 'alternating-image' %}"
+  position: 578..611
+- from: "{% include 'alternating-video', content_position = content_position %}"
+  to: "{% include 'alternating-video' %}"
+  position: 661..694
+{%- endcomment -%}
